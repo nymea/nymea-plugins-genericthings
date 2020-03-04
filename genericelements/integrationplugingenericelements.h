@@ -28,22 +28,25 @@
 *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef DEVICEPLUGINGENERICINTERFACES_H
-#define DEVICEPLUGINGENERICINTERFACES_H
+#ifndef INTEGRATIONPLUGINGENERICELEMENTS_H
+#define INTEGRATIONPLUGINGENERICELEMENTS_H
 
-#include "devices/deviceplugin.h"
+#include "integrations/integrationplugin.h"
 
-class DevicePluginGenericInterfaces : public DevicePlugin
+class IntegrationPluginGenericElements : public IntegrationPlugin
 {
     Q_OBJECT
 
-    Q_PLUGIN_METADATA(IID "io.nymea.DevicePlugin" FILE "deviceplugingenericinterfaces.json")
-    Q_INTERFACES(DevicePlugin)
+    Q_PLUGIN_METADATA(IID "io.nymea.IntegrationPlugin" FILE "integrationplugingenericelements.json")
+    Q_INTERFACES(IntegrationPlugin)
 
 public:
-    explicit DevicePluginGenericInterfaces();
-    void setupDevice(DeviceSetupInfo *info) override;
-    void executeAction(DeviceActionInfo *info) override;
+    explicit IntegrationPluginGenericElements();
+    void setupThing(ThingSetupInfo *info) override;
+
+public slots:
+    void executeAction(ThingActionInfo *info) override;
+
 };
 
-#endif // DEVICEPLUGINGENERICINTERFACES_H
+#endif // INTEGRATIONPLUGINGENERICELEMENTS_H
