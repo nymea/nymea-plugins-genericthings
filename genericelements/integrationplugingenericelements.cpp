@@ -28,25 +28,39 @@
 *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef DEVICEPLUGINGENERICELEMENTS_H
-#define DEVICEPLUGINGENERICELEMENTS_H
+#include "integrationplugingenericelements.h"
+#include "plugininfo.h"
 
-#include "devices/deviceplugin.h"
+#include <QDebug>
 
-class DevicePluginGenericElements : public DevicePlugin
+IntegrationPluginGenericElements::IntegrationPluginGenericElements()
 {
-    Q_OBJECT
+}
 
-    Q_PLUGIN_METADATA(IID "io.nymea.DevicePlugin" FILE "deviceplugingenericelements.json")
-    Q_INTERFACES(DevicePlugin)
+void IntegrationPluginGenericElements::setupThing(ThingSetupInfo *info)
+{
+    info->finish(Thing::ThingErrorNoError);
+}
 
-public:
-    explicit DevicePluginGenericElements();
-    void setupDevice(DeviceSetupInfo *info) override;
+void IntegrationPluginGenericElements::executeAction(ThingActionInfo *info)
+{
+    Thing *thing = info->thing();
+    Action action = info->action();
 
-public slots:
-    void executeAction(DeviceActionInfo *info) override;
-
-};
-
-#endif // DEVICEPLUGINGENERICELEMENTS_H
+    // Toggle Button
+    if (action.actionTypeId() == toggleButtonStateActionTypeId) {
+        thing->setStateValue(toggleButtonStateStateTypeId, action.params().paramValue(toggleButtonStateActionStateParamTypeId).toBool());
+    }
+    // Button
+    if (action.actionTypeId() == buttonButtonPressActionTypeId) {
+        emit emitEvent(Event(buttonButtonPressedEventTypeId, thing->id()));
+    }
+    // ON/OFF Button
+    if (action.actionTypeId() == onOffButtonOnActionTypeId) {
+        emit emitEvent(Event(onOffButtonOnEventTypeId, thing->id()));
+    }
+    if (action.actionTypeId() == onOffButtonOffActionTypeId) {
+        emit emitEvent(Event(onOffButtonOffEventTypeId, thing->id()));
+    }
+    info->finish(Thing::ThingErrorNoError);
+}

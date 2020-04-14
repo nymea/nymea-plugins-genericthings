@@ -7,7 +7,7 @@
             "name": "nymea",
             "displayName": "nymea",
             "id": "2062d64d-3232-433c-88bc-0d33c0ba2ba6",
-            "deviceClasses": [
+            "thingClasses": [
                 {
                     "id": "9e69585f-90ba-44e4-ad90-5b4bffbe345a",
                     "name": "awning",
