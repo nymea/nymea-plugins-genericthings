@@ -1,0 +1,128 @@
+{
+    "name": "genericButtons",
+    "displayName": "Generic buttons",
+    "id": "6e22161e-39b7-4416-8623-39e730721efb",
+    "vendors": [
+        {
+            "name": "nymea",
+            "displayName": "nymea",
+            "id": "2062d64d-3232-433c-88bc-0d33c0ba2ba6",
+            "thingClasses": [
+                {
+                    "id": "a3a73bf2-ebe4-47fa-8a0a-dc91927c6ce3",
+                    "name": "button",
+                    "displayName": "Generic button",
+                    "createMethods": [ "user" ],
+                    "interfaces": [ "button" ],
+                    "paramTypes": [ ],
+                    "actionTypes": [
+                        {
+                            "id": "3a7bda8e-b92c-454b-8ea2-b798fcec8e4b",
+                            "name": "Press",
+                            "displayName": "press"
+                        }
+                    ],
+                    "eventTypes": [
+                        {
+                            "id": "48bd63b3-da71-4aef-a6b2-e583cf9a7196",
+                            "name": "pressed",
+                            "displayName": "Pressed"
+                        }
+                    ]
+                },
+                {
+                    "id": "820b2f2d-0d92-48c8-8fd4-f94ce8fc4103",
+                    "name": "virtualButton",
+                    "displayName": "Virtual button",
+                    "createMethods": [ "user" ],
+                    "interfaces": [ "button" ],
+                    "paramTypes": [ ],
+                    "actionTypes": [
+                        {
+                            "id": "01f38af1-b2ab-4ec3-844e-ef52f0f229a9",
+                            "name": "press",
+                            "displayName": "Press"
+                        }
+                    ],
+                    "eventTypes": [
+                        {
+                            "id": "effdbc2d-e467-4b0b-80a9-9dda251bfa5c",
+                            "name": "pressed",
+                            "displayName": "Pressed"
+                        }
+                    ]
+                },
+                {
+                    "id": "57daa147-dd6f-4673-a757-d8f01a2054c7",
+                    "name": "powerSwitch",
+                    "displayName": "Generic power switch",
+                    "createMethods": ["user"],
+                    "interfaces": ["powerswitch"],
+                    "stateTypes": [
+                        {
+                            "id": "08087af6-6a3b-4e4a-ac6d-56f23ce63edf",
+                            "name": "power",
+                            "displayName": "Powered",
+                            "displayNameEvent": "Turned on or off",
+                            "displayNameAction": "Turn on or off",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        }
+                    ],
+                    "eventTypes": [
+                        {
+                            "id": "3bd54b64-dd3f-4584-b3a6-75bbc4d9041a",
+                            "name": "pressed",
+                            "displayName": "Pressed",
+                            "paramTypes": [
+                                {
+                                    "id": "a43fd9e4-2097-4dd8-afe5-ad85afd9ef50",
+                                    "name": "power",
+                                    "displayName": "Power",
+                                    "type": "bool"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "8ea0a168-74ff-4445-8c13-74aab195af4e",
+                    "name": "virtualPowerSwitch",
+                    "displayName": "Virtual power switch",
+                    "createMethods": ["user"],
+                    "interfaces": ["powerswitch"],
+                    "stateTypes": [
+                        {
+                            "id": "bd3be4e3-7377-421a-a374-104dd451de6d",
+                            "name": "power",
+                            "displayName": "Powered",
+                            "displayNameEvent": "Turned on or off",
+                            "displayNameAction": "Turn on or off",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        }
+                    ],
+                    "eventTypes": [
+                        {
+                            "id": "8a0526d1-ca0b-4a86-addd-41f93c9a9268",
+                            "name": "pressed",
+                            "displayName": "Pressed",
+                            "paramTypes": [
+                                {
+                                    "id": "ba5790aa-b9bb-48b7-84af-4f5a9cd4e902",
+                                    "name": "power",
+                                    "displayName": "Power",
+                                    "type": "bool"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

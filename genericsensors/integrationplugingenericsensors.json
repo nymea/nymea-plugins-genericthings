@@ -1,0 +1,784 @@
+{
+    "name": "genericSensors",
+    "displayName": "Generic sensors",
+    "id": "ee7b2965-d38f-4f73-aed0-e8887423ff1a",
+    "vendors": [
+        {
+            "name": "nymea",
+            "displayName": "nymea",
+            "id": "2062d64d-3232-433c-88bc-0d33c0ba2ba6",
+            "thingClasses": [
+                {
+                    "id": "cf3d65db-6f68-457b-968c-cfb66cbd5311",
+                    "name": "temperatureSensor",
+                    "displayName": "Generic temperature sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["temperaturesensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "c86ae5d3-9335-4b6e-8231-bf3ed6670dff",
+                            "name": "minTemp",
+                            "displayName": "Minimum temperature",
+                            "type": "double",
+                            "defaultValue": -20,
+                            "unit": "DegreeCelsius"
+                        },
+                        {
+                            "id": "8b5947ab-127f-4995-853b-eeeb628811e3",
+                            "name": "maxTemp",
+                            "displayName": "Maximum temperature",
+                            "type": "double",
+                            "defaultValue": 50,
+                            "unit": "DegreeCelsius"
+                        },
+                        {
+                            "id": "3b543c3a-1fc0-45b5-8c07-600a6045f82e",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "d0b6c4be-339e-4b0f-a234-0611b7565395",
+                            "name": "temperature",
+                            "displayName": "Temperature",
+                            "displayNameEvent": "Temperature changed",
+                            "type": "double",
+                            "unit": "DegreeCelsius",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "fed37466-1264-4ac1-84fd-aff3a1f7ff04",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 1,
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "d295bc64-773c-42a9-83e2-80db5fa0d1ce",
+                    "name": "humiditySensor",
+                    "displayName": "Generic humidity sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["humiditysensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "0218ffa9-3d49-4b25-a59f-c8831f190432",
+                            "name": "minHumidity",
+                            "displayName": "Minimum humidity",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "unit": "Percentage"
+                        },
+                        {
+                            "id": "10afc387-68d1-47ea-a816-0d1acad47b3c",
+                            "name": "maxHumidity",
+                            "displayName": "Maximum humidity",
+                            "type": "double",
+                            "defaultValue": 100,
+                            "unit": "Percentage"
+                        },
+                        {
+                            "id": "38064841-6121-4862-a639-08fb0b778511",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "925225d9-2965-444a-9c42-63c2873700fb",
+                            "name": "humidity",
+                            "displayName": "Humidity",
+                            "displayNameEvent": "Humidity changed",
+                            "type": "double",
+                            "unit": "Percentage",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100
+                        },
+                        {
+                            "id": "a8223e65-e704-4f84-9bbe-d8fc42597047",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "33e610cf-ff30-481b-9f0b-d6857bcd41a5",
+                    "name": "moistureSensor",
+                    "displayName": "Generic soil moisture sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["moisturesensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "32153786-f1ae-4aa4-a84c-b9054102eb92",
+                            "name": "minMoisture",
+                            "displayName": "Minimum moisture",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "unit": "Percentage"
+                        },
+                        {
+                            "id": "3426817d-065e-4cfc-aa21-bb434de684d6",
+                            "name": "maxMoisture",
+                            "displayName": "Maximum moisture",
+                            "type": "double",
+                            "defaultValue": 100,
+                            "unit": "Percentage"
+                        },
+                        {
+                            "id": "3c967a68-9951-4c9a-b019-79b913e762b6",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "7a62e1d2-92f2-424c-876c-870478a4b2bd",
+                            "name": "moisture",
+                            "displayName": "Soil moisture",
+                            "displayNameEvent": "Soil moisture changed",
+                            "type": "double",
+                            "unit": "Percentage",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "ce64a425-d990-4fc1-966b-be6de445792b",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "e2934fa1-59c3-4de8-82f2-66181136085c",
+                    "name": "phSensor",
+                    "displayName": "PH sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["phsensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "a8ff2e16-e06c-4b1e-839a-a06691a12d64",
+                            "name": "minInput",
+                            "displayName": "Minimum input value",
+                            "type": "double",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "a8889e45-59e5-4cc4-b228-611f8f19f531",
+                            "name": "maxInput",
+                            "displayName": "Maximum input value",
+                            "type": "double",
+                            "defaultValue": 100
+                        },
+                        {
+                            "id": "bb41de73-31d0-4b21-8f80-14467120aae4",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "743514b1-8018-4525-b87a-c5f414146ff2",
+                            "name": "ph",
+                            "displayName": "PH",
+                            "displayNameEvent": "PH changed",
+                            "type": "double",
+                            "defaultValue": 7,
+                            "minValue": 0,
+                            "maxValue": 14
+                        },
+                        {
+                            "id": "614a039b-9ed9-4b62-9c74-01ba4ac42f16",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "minValue": 0,
+                            "defaultValue": 50,
+                            "maxValue": 100,
+                            "ioType": "analogOutput",
+                            "writable": true
+                        }
+                    ]
+                },
+                {
+                    "id": "3edeec39-ab9d-4697-90cc-0bba089384cf",
+                    "name": "orpSensor",
+                    "displayName": "Generic ORP sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["orpsensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "396bf3f9-a3fc-44c3-90f8-b316670116a7",
+                            "name": "minORP",
+                            "displayName": "Minimum input value",
+                            "type": "double",
+                            "defaultValue": -1500
+                        },
+                        {
+                            "id": "bd0774c9-1b89-49ce-b0f8-66ff26ca10db",
+                            "name": "maxORP",
+                            "displayName": "Maximum input ORP value",
+                            "type": "double",
+                            "defaultValue": 1500
+                        },
+                        {
+                            "id": "1f218ad8-652a-4bda-987d-3e183ff040b2",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 0
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "e5ed3535-2e5d-412e-85f8-782cbccd7731",
+                            "name": "orp",
+                            "displayName": "ORP",
+                            "displayNameEvent": "ORP changed",
+                            "type": "double",
+                            "unit": "MilliVolt",
+                            "defaultValue": 0,
+                            "minValue": -1500,
+                            "maxValue": 1500
+                        },
+                        {
+                            "id": "020ff04f-a157-4925-9c55-2b45389208fc",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "minValue": 0,
+                            "defaultValue": 0,
+                            "maxValue": 100,
+                            "ioType": "analogOutput",
+                            "writable": true
+                        }
+                    ]
+                },
+                {
+                    "id": "a8cf20ec-132b-4f6f-b5ec-73dc2f873b43",
+                    "name": "o2Sensor",
+                    "displayName": "Generic O2 sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["o2sensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "58e84041-d451-44a2-972e-13a79b449b58",
+                            "name": "minInput",
+                            "displayName": "Minimum input value",
+                            "type": "double",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "198847f6-a188-42b0-9e0b-15587eaabbed",
+                            "name": "maxInput",
+                            "displayName": "Maximum input value",
+                            "type": "double",
+                            "defaultValue": 100
+                        },
+                        {
+                            "id": "d79701ac-1619-42d8-b10f-a55e8e2ab3f1",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 0
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "a3ff7641-87d9-4b07-b8e5-e6aa92b90088",
+                            "name": "o2saturation",
+                            "displayName": "O2 saturation",
+                            "displayNameEvent": "O2 saturation changed",
+                            "type": "double",
+                            "unit": "Percentage",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100
+                        },
+                        {
+                            "id": "7e74fca7-84d0-4f3e-9f26-4232b7b9f507",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "minValue": 0,
+                            "defaultValue": 0,
+                            "maxValue": 100,
+                            "ioType": "analogOutput",
+                            "writable": true
+                        }
+                    ]
+                },
+                {
+                    "id": "9a8d804b-d1dc-450a-8c41-be491e5cdda0",
+                    "name": "pressureSensor",
+                    "displayName": "Generic pressure sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["pressuresensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "035e2619-f9c2-4e8f-95dd-f124ad9402d0",
+                            "name": "minPressure",
+                            "displayName": "Minimum pressure",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "unit": "MilliBar"
+                        },
+                        {
+                            "id": "06e21251-8b4f-44a1-8504-6b51f8526bd0",
+                            "name": "maxPressure",
+                            "displayName": "Maximum pressure",
+                            "type": "double",
+                            "defaultValue": 2000,
+                            "unit": "MilliBar"
+                        },
+                        {
+                            "id": "021a17d8-9e5e-4dd6-835d-1a3e1ffd6b23",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "e645a979-1465-4592-b8b0-f4c123db0800",
+                            "name": "pressure",
+                            "displayName": "Pressure",
+                            "displayNameEvent": "Pressure changed",
+                            "type": "double",
+                            "unit": "MilliBar",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "c320577c-371a-442b-ac80-b692ff2064c9",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "unit": "Percentage",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "262a29b2-b5df-4ee2-822c-e672f50d97b6",
+                    "name": "coSensor",
+                    "displayName": "Generic CO sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["cosensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "e850b044-fd70-446c-a943-3c88407425f5",
+                            "name": "minCO",
+                            "displayName": "Minimum CO",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "unit": "PartsPerMillion"
+                        },
+                        {
+                            "id": "e9def195-1b67-4a1b-8030-cbbc6209d52e",
+                            "name": "maxCO",
+                            "displayName": "Maximum CO",
+                            "type": "double",
+                            "defaultValue": 2000,
+                            "unit": "PartsPerMillion"
+                        },
+                        {
+                            "id": "9c8a9553-7b68-4b58-a8f1-3c6b591998c0",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "9eebe9d2-b34b-4847-bc25-109e2b8cab24",
+                            "name": "co",
+                            "displayName": "CO level",
+                            "displayNameEvent": "CO level changed",
+                            "type": "double",
+                            "unit": "PartsPerMillion",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "cf3ec5ec-7098-47c5-9666-b3c52eba1b1d",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "a58a2dae-4148-4a4d-ab34-2a11124454a0",
+                    "name": "co2Sensor",
+                    "displayName": "Generic CO2 sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["co2sensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "a0d8a6ec-599a-4ded-ae03-2950561f0b72",
+                            "name": "minCO2",
+                            "displayName": "Minimum CO2",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "unit": "PartsPerMillion"
+                        },
+                        {
+                            "id": "a3029bee-8b13-4aed-8ebd-eaceb603f8ef",
+                            "name": "maxCO2",
+                            "displayName": "Maximum CO2",
+                            "type": "double",
+                            "defaultValue": 2000,
+                            "unit": "PartsPerMillion"
+                        },
+                        {
+                            "id": "236831a8-a455-4e38-a9cd-eabbebaa3f67",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "755c4c7f-093e-41dd-a38d-9ee18c9890d6",
+                            "name": "co2",
+                            "displayName": "CO2",
+                            "displayNameEvent": "CO2 changed",
+                            "type": "double",
+                            "unit": "PartsPerMillion",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "7dc765f8-fa9b-4199-8f21-49ed452f226d",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "25c6725f-5c15-485b-9ec4-cb0e11ab6b32",
+                    "name": "gasSensor",
+                    "displayName": "Generic flammable gas sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["gassensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "480945ea-6262-408d-b799-cbff905a40db",
+                            "name": "minValue",
+                            "displayName": "Minimum value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "unit": "PartsPerMillion"
+                        },
+                        {
+                            "id": "51f4a830-3ef9-4fa2-b36b-5976f724f8a1",
+                            "name": "maxValue",
+                            "displayName": "Maximum value",
+                            "type": "double",
+                            "defaultValue": 10000,
+                            "unit": "PartsPerMillion"
+                        },
+                        {
+                            "id": "1c7465b1-490d-43db-bb67-a179a6923a57",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "5135648f-57b7-44b0-b9d0-c5accad09356",
+                            "name": "gas",
+                            "displayName": "Gas level",
+                            "displayNameEvent": "Gas level changed",
+                            "type": "double",
+                            "unit": "PartsPerMillion",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "e3eb500a-ac00-426c-932a-dee4fd6fbcf5",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "d4d873fd-f0fc-433f-b615-91c1506a1890",
+                    "name": "lightSensor",
+                    "displayName": "Generic light sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["lightsensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "6dea7384-b079-443b-8cc2-1479138fa212",
+                            "name": "minLux",
+                            "displayName": "Minimum Lux",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "unit": "Lux"
+                        },
+                        {
+                            "id": "7fe74404-d7f0-41af-a8d4-dd1bda27f752",
+                            "name": "maxLux",
+                            "displayName": "Maximum Lux",
+                            "type": "double",
+                            "defaultValue": 120000,
+                            "unit": "Lux"
+                        },
+                        {
+                            "id": "f800988f-1ad5-4ffb-9aa8-70ef17614966",
+                            "name": "accuracy",
+                            "displayName": "Accuracy (decimal places)",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 5,
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "fe12ef32-9f2f-41cd-acb7-6b8e4acffa3b",
+                            "name": "lightIntensity",
+                            "displayName": "Light intensity",
+                            "displayNameEvent": "Light intensity changed",
+                            "type": "double",
+                            "unit": "Lux",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "520e5d27-7d15-4d79-94cf-5d01f5a09ea8",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "unit": "Percentage",
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "2d936f56-48ee-4be1-9b3e-28a335ad8085",
+                    "name": "doorSensor",
+                    "displayName": "Generic door or window sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["closablesensor"],
+                    "stateTypes": [
+                        {
+                            "id": "7f5fdc2b-7916-4e90-9c24-558162304f71",
+                            "name": "closed",
+                            "displayName": "Closed",
+                            "displayNameEvent": "Opened or closed",
+                            "displayNameAction": "Set open or closed",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "09b9cb86-f551-4efe-9a7d-2f7624e9510f",
+                    "name": "waterSensor",
+                    "displayName": "Gerneric water sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["watersensor"],
+                    "stateTypes": [
+                        {
+                            "id": "b2427b85-1f62-4635-b546-1961191426ef",
+                            "name": "waterDetected",
+                            "displayName": "Water detected",
+                            "displayNameEvent": "Water detected",
+                            "displayNameAction": "Set water detected",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "f1576df0-fb45-4bf0-89fa-a83c4118c326",
+                    "name": "waterLevelSensor",
+                    "displayName": "Generic water level sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["waterlevelsensor"],
+                    "settingsTypes": [
+                        {
+                            "id": "5e98e8d2-d849-46c5-b25a-d54f184ea4c7",
+                            "name": "capacity",
+                            "displayName": "Tank capactity",
+                            "type": "double",
+                            "unit": "Liter",
+                            "minValue": 0,
+                            "defaultValue": 100
+                        },
+                        {
+                            "id": "16ea3cf2-46fd-40a3-88bf-21a2bb7cbabe",
+                            "name": "minInputValue",
+                            "displayName": "Minimum input value",
+                            "type": "double",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "4e228f9b-8631-4643-8375-3d8d76d12e9c",
+                            "name": "maxInputValue",
+                            "displayName": "Maximum input value",
+                            "type": "double",
+                            "defaultValue": 1
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "07563165-e42d-4d0f-ac60-31cdd19170f2",
+                            "name": "waterLevel",
+                            "displayName": "Water level",
+                            "displayNameEvent": "Water level changed",
+                            "type": "double",
+                            "unit": "Liter",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100
+                        },
+                        {
+                            "id": "d344887d-da5d-4742-83bd-608754b2d0aa",
+                            "name": "input",
+                            "displayName": "Input value",
+                            "displayNameEvent": "Input value changed",
+                            "displayNameAction": "Set input value",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 1,
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "339a0c54-4086-404f-8d36-bcf20621b785",
+                    "name": "presenceSensor",
+                    "displayName": "Generic presence sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["presencesensor"],
+                    "stateTypes": [
+                        {
+                            "id": "22c1eac6-9bb5-4cc1-ac0d-e3e1499edd3c",
+                            "name": "isPresent",
+                            "displayName": "Presence detected",
+                            "displayNameEvent": "Presense changed",
+                            "displayNameAction": "Set presence",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "ioType": "digitalOutput",
+                            "writable": true
+                        },
+                        {
+                            "id": "be4842cb-140c-425f-9630-8bb19fdb943e",
+                            "name": "lastSeenTime",
+                            "displayName": "Last seen time",
+                            "displayNameEvent": "Last seen time changed",
+                            "type": "int",
+                            "unit": "UnixTime",
+                            "defaultValue": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

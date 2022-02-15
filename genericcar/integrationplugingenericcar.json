@@ -1,0 +1,78 @@
+{
+    "name": "genericCar",
+    "displayName": "Generic Car",
+    "id": "83ede9b2-aa5f-49ff-8f7d-5ca30d8964df",
+    "vendors": [
+        {
+            "name": "nymea",
+            "displayName": "nymea",
+            "id": "2062d64d-3232-433c-88bc-0d33c0ba2ba6",
+            "thingClasses": [
+                {
+                    "id": "dbe0a9ff-94ba-4a94-ae52-51da3f05c717",
+                    "name": "car",
+                    "displayName": "Generic electric car",
+                    "createMethods": ["user"],
+                    "interfaces": ["electricvehicle"],
+                    "settingsTypes": [
+                        {
+                            "id": "0c55516d-4285-4d02-8926-1dae03649e18",
+                            "name": "minChargingCurrent",
+                            "displayName": "Minimum charging current",
+                            "type": "uint",
+                            "unit": "Ampere",
+                            "minValue": 6,
+                            "maxValue": 16,
+                            "defaultValue": 6
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "363a2a39-61b6-4109-9cd9-aca7367d12c7",
+                            "name": "capacity",
+                            "displayName": "Capacity",
+                            "displayNameEvent": "Capacity changed",
+                            "displayNameAction": "Set capacity",
+                            "type": "double",
+                            "unit": "KiloWattHour",
+                            "defaultValue": 50,
+                            "writable": true
+                        },
+                        {
+                            "id": "d33982d6-6467-4281-b448-68c1b1db088d",
+                            "name": "batteryCritical",
+                            "displayName": "Battery level critical",
+                            "displayNameEvent": "Battery entered or left critical state",
+                            "type": "bool",
+                            "defaultValue": false
+                        },
+                        {
+                            "id": "3f1cca10-8988-4ec6-b937-0775653cde12",
+                            "name": "batteryLevel",
+                            "displayName": "Battery level",
+                            "displayNameEvent": "Battery level changed",
+                            "displayNameAction": "Set battery level",
+                            "type": "int",
+                            "unit": "Percentage",
+                            "writable": true,
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 100
+                        },
+                        {
+                            "id": "20faf2b8-2b40-4bee-b228-97dbaf0cdffc",
+                            "name": "minChargingCurrent",
+                            "displayName": "Minimum charging current",
+                            "displayNameEvent": "Minimum charging current changed",
+                            "type": "uint",
+                            "unit": "Ampere",
+                            "minValue": 6,
+                            "maxValue": 16,
+                            "defaultValue": 6
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

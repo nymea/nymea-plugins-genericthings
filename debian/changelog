@@ -1,4 +1,4 @@
-nymea-plugins (0.30.0) xenial; urgency=medium
+nymea-plugins-genericthings (0.30.0) xenial; urgency=medium
 
   [ Michael Zanetti ]
   * ZigbeePhilipsHue: Use manufacturer specific remote commands
