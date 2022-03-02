@@ -50,7 +50,7 @@
                 },
                 {
                     "id": "c3123967-f741-4fe1-a0d4-9a3e405d7e52",
-                    "name": "smartMeter",
+                    "name": "impulseSmartMeter",
                     "displayName": "Impulse based energy meter",
                     "createMethods": ["user"],
                     "interfaces": ["smartmeterconsumer"],
@@ -168,6 +168,68 @@
                             "displayNameEvent": "Battery entered or left critical state",
                             "type": "bool",
                             "defaultValue": false
+                        }
+                    ]
+                },
+                {
+                    "id": "c26478b3-dd64-445f-9859-8ef816025cb9",
+                    "name": "smartMeterConsumer",
+                    "displayName": "Generic smart meter consumer",
+                    "createMethods": ["user"],
+                    "interfaces": ["smartmeterconsumer"],
+                    "stateTypes": [
+                        {
+                            "id": "5a083458-e476-487d-ab8f-75e92cf16489",
+                            "name": "currentPower",
+                            "displayName": "Current Power usage",
+                            "displayNameEvent": "Current Power usage changed",
+                            "displayNameAction": "Set current power usage",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Watt",
+                            "writable": true
+                        },
+                        {
+                            "id": "ba10ef2c-e41f-4de2-a620-dff2ec5f025a",
+                            "name": "totalEnergyConsumed",
+                            "displayName": "Consumed energy",
+                            "displayNameEvent": "Consumed energy changed",
+                            "displayNameAction": "Set total consumed energy",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "KiloWattHour",
+                            "writable": true
+                        }
+                    ]
+                },
+                {
+                    "id": "986acf96-3cdd-4a8d-8f5c-2ffe12fef1c9",
+                    "name": "smartMeterProducer",
+                    "displayName": "Generic smart meter producer",
+                    "createMethods": ["user"],
+                    "interfaces": ["smartmeterproducer"],
+                    "stateTypes": [
+                        {
+                            "id": "8fd67ad4-322d-46d7-a0fd-20fdbfc12bc5",
+                            "name": "currentPower",
+                            "displayName": "Current Power production",
+                            "displayNameEvent": "Current Power production changed",
+                            "displayNameAction": "Set current power production",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Watt",
+                            "writable": true
+                        },
+                        {
+                            "id": "58a1212c-ab6e-4631-b08d-712cdde295c7",
+                            "name": "totalEnergyProduced",
+                            "displayName": "Produced energy",
+                            "displayNameEvent": "Produced energy changed",
+                            "displayNameAction": "Set total produced energy",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "KiloWattHour",
+                            "writable": true
                         }
                     ]
                 }
