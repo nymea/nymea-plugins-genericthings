@@ -29,26 +29,6 @@
                     ]
                 },
                 {
-                    "id": "c50d3216-f307-4f9f-8190-4391510c385c",
-                    "name": "light",
-                    "displayName": "Generic light",
-                    "createMethods": ["user"],
-                    "interfaces": ["light"],
-                    "stateTypes": [
-                        {
-                            "id": "8b6e4a67-6522-408b-b676-8d2f09ed2d54",
-                            "name": "power",
-                            "displayName": "Power",
-                            "displayNameEvent": "Power changed",
-                            "displayNameAction": "Set power",
-                            "type": "bool",
-                            "defaultValue": false,
-                            "writable": true,
-                            "ioType": "digitalInput"
-                        }
-                    ]
-                },
-                {
                     "id": "c3123967-f741-4fe1-a0d4-9a3e405d7e52",
                     "name": "impulseSmartMeter",
                     "displayName": "Impulse based energy meter",

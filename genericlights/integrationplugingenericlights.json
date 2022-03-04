@@ -1,0 +1,167 @@
+{
+    "name": "genericLights",
+    "displayName": "Generic lights",
+    "id": "8b803622-0e48-4987-970e-927d92ad18d5",
+    "vendors": [
+        {
+            "name": "nymea",
+            "displayName": "nymea",
+            "id": "2062d64d-3232-433c-88bc-0d33c0ba2ba6",
+            "thingClasses": [
+                {
+                    "id": "c50d3216-f307-4f9f-8190-4391510c385c",
+                    "name": "light",
+                    "displayName": "Generic light",
+                    "createMethods": ["user"],
+                    "interfaces": ["light"],
+                    "stateTypes": [
+                        {
+                            "id": "8b6e4a67-6522-408b-b676-8d2f09ed2d54",
+                            "name": "power",
+                            "displayName": "Power",
+                            "displayNameEvent": "Power changed",
+                            "displayNameAction": "Set power",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        }
+                    ]
+                },
+                {
+                    "id": "fdfbd11f-bd99-4876-8254-7f91f96ca4fc",
+                    "name": "dimmableLight",
+                    "displayName": "Generic dimmable light",
+                    "createMethods": ["user"],
+                    "interfaces": ["dimmablelight"],
+                    "stateTypes": [
+                        {
+                            "id": "74535080-b6d9-41db-8e35-ef90e9042b75",
+                            "name": "power",
+                            "displayName": "Power",
+                            "displayNameEvent": "Power changed",
+                            "displayNameAction": "Set power",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        },
+                        {
+                            "id": "88786787-8025-4967-b7a6-f3b670216ac0",
+                            "name": "brightness",
+                            "displayName": "Brightness",
+                            "displayNameEvent": "Brightness changed",
+                            "displayNameAction": "Set brightness",
+                            "type": "int",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 100,
+                            "writable": true,
+                            "ioType": "analogInput"
+                        }
+                    ]
+                },
+                {
+                    "id": "34ee15f7-8e94-4927-bfd2-7123aac0b1be",
+                    "name": "colorTemperatureLight",
+                    "displayName": "Generic color temperature light",
+                    "createMethods": ["user"],
+                    "interfaces": ["colortemperaturelight"],
+                    "stateTypes": [
+                        {
+                            "id": "316c8852-6e53-4404-891a-83c1f0fa0c84",
+                            "name": "power",
+                            "displayName": "Power",
+                            "displayNameEvent": "Power changed",
+                            "displayNameAction": "Set power",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        },
+                        {
+                            "id": "76b54a6d-fae9-4cb6-8603-a3a615e153f9",
+                            "name": "brightness",
+                            "displayName": "Brightness",
+                            "displayNameEvent": "Brightness changed",
+                            "displayNameAction": "Set brightness",
+                            "type": "int",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 100,
+                            "writable": true,
+                            "ioType": "analogInput"
+                        },
+                        {
+                            "id": "3a2459ed-af20-4ea0-8bd7-97b59be594f7",
+                            "name": "colorTemperature",
+                            "displayName": "Color temperature",
+                            "displayNameEvent": "Color temperature changed",
+                            "displayNameAction": "Set color temperature",
+                            "type": "int",
+                            "writable": true,
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 50
+                        }
+                    ]
+                },
+                {
+                    "id": "886a856d-1373-4fff-ac34-dbdfa5531c2a",
+                    "name": "colorLight",
+                    "displayName": "Generic color light",
+                    "createMethods": ["user"],
+                    "interfaces": ["colorlight"],
+                    "stateTypes": [
+                        {
+                            "id": "1a366728-e67c-4767-b125-bec5dd6515f5",
+                            "name": "power",
+                            "displayName": "Power",
+                            "displayNameEvent": "Power changed",
+                            "displayNameAction": "Set power",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        },
+                        {
+                            "id": "392e418c-d1e0-45ae-ba90-0fbc53227d70",
+                            "name": "brightness",
+                            "displayName": "Brightness",
+                            "displayNameEvent": "Brightness changed",
+                            "displayNameAction": "Set brightness",
+                            "type": "int",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 100,
+                            "writable": true,
+                            "ioType": "analogInput"
+                        },
+                        {
+                            "id": "4db6a6d9-f7f4-4dca-85c4-4f5f8e57c897",
+                            "name": "colorTemperature",
+                            "displayName": "Color temperature",
+                            "displayNameEvent": "Color temperature changed",
+                            "displayNameAction": "Set color temperature",
+                            "type": "int",
+                            "writable": true,
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 50
+                        },
+                        {
+                            "id": "ecce80e5-c992-49cd-bd67-7721d2efad2b",
+                            "name": "color",
+                            "displayName": "color",
+                            "displayNameEvent": "Color changed",
+                            "displayNameAction": "Set color",
+                            "type": "QColor",
+                            "writable": true,
+                            "defaultValue": "#FFFFFF"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -89,13 +89,6 @@ void IntegrationPluginGenericEnergy::executeAction(ThingActionInfo *info)
         } else {
             Q_ASSERT_X(false, "executeAction", QString("Unhandled actionTypeId: %1").arg(action.actionTypeId().toString()).toUtf8());
         }
-    } else if (thing->thingClassId() == lightThingClassId) {
-        if (action.actionTypeId() == lightPowerActionTypeId) {
-            thing->setStateValue(lightPowerStateTypeId, action.param(lightPowerActionPowerParamTypeId).value());
-            return info->finish(Thing::ThingErrorNoError);
-        } else {
-            Q_ASSERT_X(false, "executeAction", QString("Unhandled actionTypeId: %1").arg(action.actionTypeId().toString()).toUtf8());
-        }
     } else if (thing->thingClassId() == impulseSmartMeterThingClassId) {
         if (action.actionTypeId() == impulseSmartMeterImpulseInputActionTypeId) {
             bool value = info->action().param(impulseSmartMeterImpulseInputActionImpulseInputParamTypeId).value().toBool();
