@@ -1,3 +1,14 @@
+nymea-plugins-genericthings (1.0.0) xenial; urgency=medium
+
+  [ Michael Zanetti ]
+  * Split genericthings plugin into individual plugins
+  * Energy: Add generic smart meters (producer and consumer)
+  * Add a plugin for generic lights (all types)
+
+  [ Jenkins ]
+
+ -- Jenkins <jenkins@nymea.io>  Thu, 10 Mar 2022 13:58:44 +0100
+
 nymea-plugins-genericthings (0.30.0) xenial; urgency=medium
 
   [ Michael Zanetti ]
