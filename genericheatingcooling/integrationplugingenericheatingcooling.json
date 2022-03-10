@@ -1,0 +1,279 @@
+{
+    "name": "genericHeatingCooling",
+    "displayName": "Generic heating & cooling devices",
+    "id": "0d582885-8295-41bc-99fb-b4bcee4f626c",
+    "vendors": [
+        {
+            "name": "nymea",
+            "displayName": "nymea",
+            "id": "2062d64d-3232-433c-88bc-0d33c0ba2ba6",
+            "thingClasses": [
+                {
+                    "id": "392854c4-3d14-4cf8-96cd-d933526bd197",
+                    "name": "heating",
+                    "displayName": "Generic heating",
+                    "createMethods": ["user"],
+                    "interfaces": ["heating"],
+                    "stateTypes": [
+                        {
+                            "id": "409b635e-a754-4b5c-b3f0-d1c5a0fb3f03",
+                            "name": "power",
+                            "displayName": "Power",
+                            "displayNameEvent": "Power changed",
+                            "displayNameAction": "Set power",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        }
+                    ]
+                },
+                {
+                    "id": "24af8dd3-ddf0-47f0-bf09-70fdfd8dceab",
+                    "name": "ventilation",
+                    "displayName": "Generic ventilation",
+                    "createMethods": ["user"],
+                    "interfaces": ["ventilation"],
+                    "stateTypes": [
+                        {
+                            "id": "846711b7-ea5a-4c66-a267-001c60406509",
+                            "name": "power",
+                            "displayName": "Power",
+                            "displayNameEvent": "Turned on or off",
+                            "displayNameAction": "Turn on or off",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        }
+                    ]
+                },
+                {
+                    "id": "a7eec5f7-3cc3-4edb-baa7-1f6b6f935bf8",
+                    "name": "ventilationFlow",
+                    "displayName": "Generic ventilation with flow control",
+                    "createMethods": ["user"],
+                    "interfaces": ["ventilation"],
+                    "stateTypes": [
+                        {
+                            "id": "adf9a8dd-da13-4070-a3bd-9d4be26ebcd1",
+                            "name": "power",
+                            "displayName": "Power",
+                            "displayNameEvent": "Turned on or off",
+                            "displayNameAction": "Turn on or off",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        },
+                        {
+                            "id": "5a273bba-0bef-49fb-870a-7f2df8fc14b6",
+                            "name": "flowRate",
+                            "displayName": "Air flow rate",
+                            "displayNameEvent": "Air flow rate changed",
+                            "displayNameAction": "Set air flow rate",
+                            "type": "int",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "unit": "Percentage",
+                            "writable": true,
+                            "defaultValue": 0,
+                            "ioType": "analogOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "6a34ba99-e5ec-4fc9-a61f-695ed8573fa1",
+                    "name": "thermostat",
+                    "displayName": "Generic thermostat",
+                    "createMethods": ["user"],
+                    "interfaces": ["thermostat"],
+                    "settingsTypes": [
+                        {
+                            "id": "64bf308f-a543-4e02-b787-1a1714c1f978",
+                            "name": "temperatureDifference",
+                            "displayName": "Temperature difference",
+                            "type": "double",
+                            "unit": "DegreeCelsius",
+                            "minValue": 0.00,
+                            "defaultValue": 2.00
+                        },
+                        {
+                            "id": "67451c97-50e1-4ea6-ac43-4386fbd26698",
+                            "name": "minTargetTemperature",
+                            "displayName": "Minimum temperature",
+                            "type": "double",
+                            "unit": "DegreeCelsius",
+                            "minValue": -20,
+                            "maxValue": 49,
+                            "defaultValue": -20
+                        },
+                        {
+                            "id": "85608dd5-7e67-4c98-9e62-b97411681048",
+                            "name": "maxTargetTemperature",
+                            "displayName": "Maximum temperature",
+                            "type": "double",
+                            "unit": "DegreeCelsius",
+                            "minValue": -19,
+                            "maxValue": 50,
+                            "defaultValue": 50
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "0f808803-0e63-47df-b024-9685998ba663",
+                            "name": "temperature",
+                            "displayName": "Temperature sensor input",
+                            "displayNameEvent": "Temperature sensor input changed",
+                            "displayNameAction": "Set temperature sensor input",
+                            "type": "double",
+                            "defaultValue": 0,
+                            "minValue": -20,
+                            "maxValue": 50,
+                            "unit": "DegreeCelsius",
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        },
+                        {
+                            "id": "60169ebf-c1e3-41ed-a1bb-4b858e93ec50",
+                            "name": "targetTemperature",
+                            "displayName": "Target temperature",
+                            "displayNameEvent": "Target temperature changed",
+                            "displayNameAction": "Set target temperature",
+                            "type": "double",
+                            "defaultValue": 21,
+                            "minValue": -20,
+                            "maxValue": 50,
+                            "unit": "DegreeCelsius",
+                            "writable": true,
+                            "ioType": "analogInput"
+                        },
+                        {
+                            "id": "1f6a0c39-4417-4e31-86db-9926cf81c345",
+                            "name": "heatingOn",
+                            "displayName": "Heating On/off",
+                            "displayNameEvent": "Heating turned on/off",
+                            "displayNameAction": "Turn heating on/off",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        },
+                        {
+                            "id": "cab7d4bd-f612-4d12-b3a4-0649e189810f",
+                            "name": "coolingOn",
+                            "displayName": "Cooling On/off",
+                            "displayNameEvent": "Cooling turned on/off",
+                            "displayNameAction": "Turn cooling on/off",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        }
+                    ]
+                },
+                {
+                    "id": "09edbc07-d382-48a4-9b16-99992014aff9",
+                    "name": "cooling",
+                    "displayName": "Generic cooler",
+                    "createMethods": ["user"],
+                    "interfaces": ["cooling"],
+                    "stateTypes": [
+                        {
+                            "id": "918cfd2c-6692-4faa-acc6-18ebf93611ec",
+                            "name": "power",
+                            "displayName": "Cooler on/off",
+                            "displayNameEvent": "Cooler turned on/off",
+                            "displayNameAction": "Turn cooler on/off",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        }
+                    ]
+                },
+                {
+                    "id": "83cf138d-02dc-4015-9b03-6360c2f3cfb1",
+                    "name": "sgReady",
+                    "displayName": "SG-Ready",
+                    "createMethods": ["user"],
+                    "interfaces": [ "smartgridheatpump" ],
+                    "settingsTypes": [
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "d080466e-7271-441f-9916-1199a6668545",
+                            "name": "relay1",
+                            "displayName": "Relay 1",
+                            "displayNameEvent": "Relay 1 changed",
+                            "displayNameAction": "Set relay 1",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "ioType": "digitalInput",
+                            "writable": true
+                        },
+                        {
+                            "id": "caf22937-fdf7-41e1-a87b-d11e66c4f4c6",
+                            "name": "relay2",
+                            "displayName": "Relay 2",
+                            "displayNameEvent": "Relay 2 changed",
+                            "displayNameAction": "Set relay 2",
+                            "type": "bool",
+                            "defaultValue": true,
+                            "ioType": "digitalInput",
+                            "writable": true
+                        },
+                        {
+                            "id": "1e694bc2-12e1-4e1d-a0ec-70af2c7b16ab",
+                            "name": "sgReadyMode",
+                            "displayName": "Smart grid mode",
+                            "displayNameEvent": "Smart grid mode changed",
+                            "displayNameAction": "Set smart grid mode",
+                            "type": "QString",
+                            "possibleValues": [
+                                "Off",
+                                "Low",
+                                "Standard",
+                                "High"
+                            ],
+                            "defaultValue": "Standard",
+                            "writable": true,
+                            "cached": true,
+                            "suggestLogging": true
+                        },
+                        {
+                            "id": "b421d098-f6e9-40e2-b536-58acdb3a49fe",
+                            "name": "operatingModeDescription",
+                            "displayName": "Operating mode description",
+                            "displayNameEvent": "Operating mode description changed",
+                            "type": "QString",
+                            "defaultValue": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "9fdb33bb-8e38-4108-8234-3b1d07bbc801",
+                    "name": "simpleHeatPump",
+                    "displayName": "Generic simple heat pump",
+                    "createMethods": ["user"],
+                    "interfaces": ["simpleheatpump"],
+                    "stateTypes": [
+                        {
+                            "id": "ac2ac0f9-058c-4586-8871-2d9dbc6e1758",
+                            "name": "power",
+                            "displayName": "Heat pump enabled",
+                            "displayNameEvent": "Heat pump power changed",
+                            "displayNameAction": "Enable/Disable heat pump",
+                            "type": "bool",
+                            "writable": true,
+                            "defaultValue": false,
+                            "cached": true,
+                            "ioType": "digitalInput",
+                            "suggestLogging": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

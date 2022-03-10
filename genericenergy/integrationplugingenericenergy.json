@@ -1,0 +1,177 @@
+{
+    "name": "genericEnergy",
+    "displayName": "Generic energy devices",
+    "id": "b3188696-2585-4806-bf98-30ab576ce5c8",
+    "vendors": [
+        {
+            "name": "nymea",
+            "displayName": "nymea",
+            "id": "2062d64d-3232-433c-88bc-0d33c0ba2ba6",
+            "thingClasses": [
+                {
+                    "id": "4e7261af-a27b-4446-8346-914ea59f7547",
+                    "name": "socket",
+                    "displayName": "Generic power socket",
+                    "createMethods": ["user"],
+                    "interfaces": ["powersocket"],
+                    "stateTypes": [
+                        {
+                            "id": "018038d7-1d02-4b17-8fe3-babca044b087",
+                            "name": "power",
+                            "displayName": "Power",
+                            "displayNameEvent": "Power changed",
+                            "displayNameAction": "Set power",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        }
+                    ]
+                },
+                {
+                    "id": "c50d3216-f307-4f9f-8190-4391510c385c",
+                    "name": "light",
+                    "displayName": "Generic light",
+                    "createMethods": ["user"],
+                    "interfaces": ["light"],
+                    "stateTypes": [
+                        {
+                            "id": "8b6e4a67-6522-408b-b676-8d2f09ed2d54",
+                            "name": "power",
+                            "displayName": "Power",
+                            "displayNameEvent": "Power changed",
+                            "displayNameAction": "Set power",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalInput"
+                        }
+                    ]
+                },
+                {
+                    "id": "c3123967-f741-4fe1-a0d4-9a3e405d7e52",
+                    "name": "smartMeter",
+                    "displayName": "Impulse based energy meter",
+                    "createMethods": ["user"],
+                    "interfaces": ["smartmeterconsumer"],
+                    "settingsTypes": [
+                        {
+                            "id": "c361732b-68eb-447e-a434-e84031231871",
+                            "name": "impulsePerKwh",
+                            "displayName": "Impulse/kWh",
+                            "type": "int",
+                            "minValue": 1,
+                            "maxValue": 1000000,
+                            "defaultValue": 1000
+                        },
+                        {
+                            "id": "73c9acc3-8f76-40d7-a79b-a1f08bb308d4",
+                            "name": "impulseTimeframe",
+                            "displayName": "Timeframe for power calculation",
+                            "type": "int",
+                            "unit": "Seconds",
+                            "minValue": 1,
+                            "maxValue": 600,
+                            "defaultValue": 10
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "5983d714-5f80-42d8-bee2-9228b6382b3b",
+                            "name": "currentPower",
+                            "displayName": "Current Power usage",
+                            "displayNameEvent": "Current Power usage changed",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Watt"
+                        },
+                        {
+                            "id": "5821edb7-e6cb-4e5a-9d0b-3375126d3367",
+                            "name": "totalEnergyConsumed",
+                            "displayName": "Energy",
+                            "displayNameEvent": "Energy changed",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "KiloWattHour"
+                        },
+                        {
+                            "id": "9cd7e5ca-f8f8-48d5-9785-911ae75158c3",
+                            "name": "impulseInput",
+                            "displayName": "Impulse input",
+                            "displayNameEvent": "Impulse input changed",
+                            "displayNameAction": "Set impulse input",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalOutput"
+                        }
+                    ]
+                },
+                {
+                    "id": "81418556-cae3-4803-aa0c-9c4b3304a3eb",
+                    "name": "battery",
+                    "displayName": "Generic battery",
+                    "createMethods": ["user"],
+                    "interfaces": ["battery"],
+                    "settingsTypes": [
+                        {
+                            "id": "8d875cb7-3a14-42d1-bf1b-759e5fd95a8f",
+                            "name": "criticalLevel",
+                            "displayName": "Critical battery level",
+                            "type": "int",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 10
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "d37eed4a-befc-40d4-b435-40a761f99314",
+                            "name": "batteryLevel",
+                            "displayName": "Battery level",
+                            "displayNameEvent": "Battery level changed",
+                            "type": "int",
+                            "unit": "Percentage",
+                            "defaultValue": 0,
+                            "minValue": 0,
+                            "maxValue": 100
+                        },
+                        {
+                            "id": "3336f0c2-158b-4353-b74f-f1bb9c4e8447",
+                            "name": "batteryLevelControl",
+                            "displayName": "Battery level control",
+                            "displayNameEvent": "Battery level control changed",
+                            "displayNameAction": "Set battery level",
+                            "type": "double",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 0,
+                            "unit": "Percentage",
+                            "writable": true,
+                            "ioType": "analogOutput"
+                        },
+                        {
+                            "id": "a61c0328-b982-46a5-9cc0-b4fa4d0ab84d",
+                            "name": "charging",
+                            "displayName": "Charging",
+                            "displayNameEvent": "Charging started or stopped",
+                            "displayNameAction": "Set charging",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true,
+                            "ioType": "digitalOutput"
+                        },
+                        {
+                            "id": "e95dc037-002d-40a2-8c15-cd5489bd354a",
+                            "name": "batteryCritical",
+                            "displayName": "Battery critical",
+                            "displayNameEvent": "Battery entered or left critical state",
+                            "type": "bool",
+                            "defaultValue": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
