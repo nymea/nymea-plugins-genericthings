@@ -7,6 +7,7 @@ PLUGIN_DIRS = \
     genericgarages        \
     genericheatingcooling \
     genericirrigation     \
+    genericlights         \
     genericsensors        \
     genericshading        \
     genericthing          \

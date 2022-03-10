@@ -86,6 +86,18 @@ Description: nymea integration plugin for generic irrigation systems
  means, like GPIOs or other types of relays.
 
 
+Package: nymea-plugin-generic-lights
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Description: nymea integration plugin for generic lights
+ This package contains the nymea integration plugin for generic lights.
+ They can be used to represent lights in nymea which are controlled via
+ some on/off switches like smart plugs, GPIOs, relays or more complex systems
+ like MQTT.
+
+
 Package: nymea-plugin-generic-sensors
 Architecture: any
 Depends: ${shlibs:Depends},
@@ -131,6 +143,7 @@ Depends: ${shlibs:Depends},
          nymea-plugin-generic-garages,
          nymea-plugin-generic-heatingcooling,
          nymea-plugin-generic-irrigation,
+         nymea-plugin-generic-lights,
          nymea-plugin-generic-sensors,
          nymea-plugin-generic-shading,
          nymea-plugin-generic-thing,
