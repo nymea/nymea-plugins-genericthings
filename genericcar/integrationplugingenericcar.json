@@ -24,6 +24,16 @@
                             "minValue": 6,
                             "maxValue": 16,
                             "defaultValue": 6
+                        },
+                        {
+                            "id": "57f36386-dd71-4ab0-8d2f-8c74a391f90d",
+                            "name": "capacity",
+                            "displayName": "Capacity",
+                            "type": "uint",
+                            "unit": "KiloWattHour",
+                            "minValue": 5,
+                            "maxValue": 200,
+                            "defaultValue": 50
                         }
                     ],
                     "stateTypes": [
@@ -32,11 +42,9 @@
                             "name": "capacity",
                             "displayName": "Capacity",
                             "displayNameEvent": "Capacity changed",
-                            "displayNameAction": "Set capacity",
                             "type": "double",
                             "unit": "KiloWattHour",
-                            "defaultValue": 50,
-                            "writable": true
+                            "defaultValue": 50
                         },
                         {
                             "id": "d33982d6-6467-4281-b448-68c1b1db088d",
