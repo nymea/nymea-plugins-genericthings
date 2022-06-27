@@ -51,6 +51,8 @@ void IntegrationPluginGenericCar::setupThing(ThingSetupInfo *info)
         } else if (paramTypeId == carSettingsMinChargingCurrentParamTypeId) {
             qCDebug(dcGenericCar()) << "Car minimum charging current settings changed" << value.toUInt() << "A";
             thing->setStateValue(carMinChargingCurrentStateTypeId, value);
+        } else if (paramTypeId == carSettingsPhaseCountParamTypeId) {
+            thing->setStateValue(carPhaseCountStateTypeId, value);
         }
     });
 

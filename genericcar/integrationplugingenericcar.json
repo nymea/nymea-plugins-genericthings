@@ -34,6 +34,15 @@
                             "minValue": 5,
                             "maxValue": 200,
                             "defaultValue": 50
+                        },
+                        {
+                            "id": "6ee1534a-f2c7-4819-8cd5-728dc63a31ba",
+                            "name": "phaseCount",
+                            "displayName": "Phase count",
+                            "type": "uint",
+                            "minValue": 1,
+                            "maxValue": 3,
+                            "defaultValue": 1
                         }
                     ],
                     "stateTypes": [
@@ -77,6 +86,16 @@
                             "minValue": 6,
                             "maxValue": 16,
                             "defaultValue": 6
+                        },
+                        {
+                            "id": "c886c062-bf1a-46c5-8e54-aed804a22d57",
+                            "name": "phaseCount",
+                            "displayName": "Phase count",
+                            "displayNameEvent": "Phase count changed",
+                            "type": "uint",
+                            "minValue": 1,
+                            "maxValue": 3,
+                            "defaultValue": 1
                         }
                     ]
                 }
