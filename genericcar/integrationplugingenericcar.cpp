@@ -46,11 +46,18 @@ void IntegrationPluginGenericCar::setupThing(ThingSetupInfo *info)
 
     // Set the min charging current state if the settings value changed
     connect(thing, &Thing::settingChanged, this, [thing](const ParamTypeId &paramTypeId, const QVariant &value){
-        if (paramTypeId == carSettingsMinChargingCurrentParamTypeId) {
+        if (paramTypeId == carSettingsCapacityParamTypeId) {
+            thing->setStateValue(carCapacityStateTypeId, value);
+        } else if (paramTypeId == carSettingsMinChargingCurrentParamTypeId) {
             qCDebug(dcGenericCar()) << "Car minimum charging current settings changed" << value.toUInt() << "A";
             thing->setStateValue(carMinChargingCurrentStateTypeId, value);
+        } else if (paramTypeId == carSettingsPhaseCountParamTypeId) {
+            thing->setStateValue(carPhaseCountStateTypeId, value);
         }
     });
+
+    // Migration from earlier versions (pre 1.3) which had the capacity setting as a writable state.
+    thing->setSettingValue(carSettingsCapacityParamTypeId, thing->stateValue(carCapacityStateTypeId));
 
     // Finish the setup
     info->finish(Thing::ThingErrorNoError);
@@ -64,10 +71,7 @@ void IntegrationPluginGenericCar::executeAction(ThingActionInfo *info)
     Thing *thing = info->thing();
     Action action = info->action();
 
-    if (action.actionTypeId() == carCapacityActionTypeId) {
-        thing->setStateValue(carCapacityStateTypeId, action.paramValue(carCapacityActionCapacityParamTypeId));
-        info->finish(Thing::ThingErrorNoError);
-    } else if (action.actionTypeId() == carBatteryLevelActionTypeId) {
+    if (action.actionTypeId() == carBatteryLevelActionTypeId) {
         thing->setStateValue(carBatteryLevelStateTypeId, action.paramValue(carBatteryLevelActionBatteryLevelParamTypeId));
         thing->setStateValue(carBatteryCriticalStateTypeId, action.paramValue(carBatteryLevelActionBatteryLevelParamTypeId).toInt() < 10);
         info->finish(Thing::ThingErrorNoError);
