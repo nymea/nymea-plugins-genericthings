@@ -265,6 +265,14 @@ void IntegrationPluginGenericSensors::executeAction(ThingActionInfo *info)
             info->finish(Thing::ThingErrorNoError);
             return;
         }
+    } else if (thing->thingClassId() == fireSensorThingClassId) {
+        if (action.actionTypeId() == fireSensorFireDetectedActionTypeId) {
+            bool fire = action.paramValue(fireSensorFireDetectedActionFireDetectedParamTypeId).toBool();
+            qCDebug(dcGenericSensors()) << "Fire sensor state:" << (fire ? "fire" : "no fire");
+            thing->setStateValue(fireSensorFireDetectedStateTypeId, fire);
+            info->finish(Thing::ThingErrorNoError);
+            return;
+        }
     } else {
         Q_ASSERT_X(false, "executeAction", QString("Unhandled thingClassId: %1").arg(thing->thingClassId().toString()).toUtf8());
     }
