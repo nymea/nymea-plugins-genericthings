@@ -777,6 +777,26 @@
                             "defaultValue": 0
                         }
                     ]
+                },
+                {
+                    "id": "14e458d8-0480-4d2f-8e8b-2371cd4136f2",
+                    "name": "fireSensor",
+                    "displayName": "Generic fire sensor",
+                    "createMethods": ["user"],
+                    "interfaces": ["firesensor"],
+                    "stateTypes": [
+                        {
+                            "id": "4bb41637-8469-4aea-ad46-6cef3ba3afa3",
+                            "name": "fireDetected",
+                            "displayName": "Fire detected",
+                            "displayNameEvent": "Fire detected changed",
+                            "displayNameAction": "Set fire detected",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "ioType": "digitalOutput",
+                            "writable": true
+                        }
+                    ]
                 }
             ]
         }
