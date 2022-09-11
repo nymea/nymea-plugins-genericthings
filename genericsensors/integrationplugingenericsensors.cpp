@@ -205,7 +205,7 @@ void IntegrationPluginGenericSensors::executeAction(ThingActionInfo *info)
             double newValue = mapDoubleValue(value, 0, 100, min, max);
             double roundingFactor = qPow(10, info->thing()->setting(gasSensorSettingsAccuracyParamTypeId).toInt());
             newValue = qRound(newValue * roundingFactor) / roundingFactor;
-            thing->setStateValue(gasSensorGasStateTypeId, newValue);
+            thing->setStateValue(gasSensorGasLevelStateTypeId, newValue);
             info->finish(Thing::ThingErrorNoError);
             return;
         } else {
