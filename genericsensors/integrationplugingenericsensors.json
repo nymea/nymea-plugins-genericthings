@@ -570,7 +570,7 @@
                     "stateTypes": [
                         {
                             "id": "5135648f-57b7-44b0-b9d0-c5accad09356",
-                            "name": "gas",
+                            "name": "gasLevel",
                             "displayName": "Gas level",
                             "displayNameEvent": "Gas level changed",
                             "type": "double",
