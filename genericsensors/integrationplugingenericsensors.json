@@ -438,7 +438,7 @@
                             "name": "maxCO",
                             "displayName": "Maximum CO",
                             "type": "double",
-                            "defaultValue": 2000,
+                            "defaultValue": 255,
                             "unit": "PartsPerMillion"
                         },
                         {
@@ -458,6 +458,8 @@
                             "displayName": "CO level",
                             "displayNameEvent": "CO level changed",
                             "type": "double",
+                            "minValue": 0,
+                            "maxValue": "255",
                             "unit": "PartsPerMillion",
                             "defaultValue": 0
                         },
