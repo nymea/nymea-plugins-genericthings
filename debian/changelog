@@ -1,3 +1,12 @@
+nymea-plugins-genericthings (1.5.0) jammy; urgency=medium
+
+  [ Michael Zanetti ]
+  * Sensors: Update gas sensor to changes in interface
+  * Sensors: Update co sensor to latest interface
+  * Add missing "Replaces" tag tp packages
+
+ -- jenkins <developer@nymea.io>  Tue, 18 Oct 2022 01:19:26 +0200
+
 nymea-plugins-genericthings (1.4.1) jammy; urgency=medium
 
 
