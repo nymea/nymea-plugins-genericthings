@@ -104,8 +104,8 @@
                             "displayName": "Minimum temperature",
                             "type": "double",
                             "unit": "DegreeCelsius",
-                            "minValue": -20,
-                            "maxValue": 49,
+                            "minValue": -100,
+                            "maxValue": 99,
                             "defaultValue": -20
                         },
                         {
@@ -114,8 +114,8 @@
                             "displayName": "Maximum temperature",
                             "type": "double",
                             "unit": "DegreeCelsius",
-                            "minValue": -19,
-                            "maxValue": 50,
+                            "minValue": -99,
+                            "maxValue": 100,
                             "defaultValue": 50
                         }
                     ],
