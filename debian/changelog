@@ -1,3 +1,10 @@
+nymea-plugins-genericthings (1.6.0) jammy; urgency=medium
+
+  [ Michael Zanetti ]
+  * Thermostat: Allow a wider range for min/may values
+
+ -- jenkins <developer@nymea.io>  Tue, 13 Dec 2022 21:06:22 +0100
+
 nymea-plugins-genericthings (1.5.1) jammy; urgency=medium
 
 
