@@ -516,16 +516,16 @@
                             "id": "755c4c7f-093e-41dd-a38d-9ee18c9890d6",
                             "name": "co2",
                             "displayName": "CO2",
-                            "displayNameEvent": "CO2 changed",
                             "type": "double",
                             "unit": "PartsPerMillion",
+                            "minValue": 0,
+                            "maxValue": 2000,
                             "defaultValue": 0
                         },
                         {
                             "id": "7dc765f8-fa9b-4199-8f21-49ed452f226d",
                             "name": "input",
                             "displayName": "Input value",
-                            "displayNameEvent": "Input value changed",
                             "displayNameAction": "Set input value",
                             "type": "double",
                             "defaultValue": 0,
