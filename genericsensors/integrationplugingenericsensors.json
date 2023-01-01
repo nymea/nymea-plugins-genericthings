@@ -20,16 +20,34 @@
                             "name": "minTemp",
                             "displayName": "Minimum temperature",
                             "type": "double",
-                            "defaultValue": -20,
-                            "unit": "DegreeCelsius"
+                            "unit": "DegreeCelsius",
+                            "defaultValue": -20
                         },
                         {
                             "id": "8b5947ab-127f-4995-853b-eeeb628811e3",
                             "name": "maxTemp",
                             "displayName": "Maximum temperature",
                             "type": "double",
-                            "defaultValue": 50,
-                            "unit": "DegreeCelsius"
+                            "unit": "DegreeCelsius",
+                            "defaultValue": 50
+                        },
+                        {
+                            "id": "603e0c4e-4757-4ac0-8345-ba7a1aaf5503",
+                            "name": "minInput",
+                            "displayName": "Minimum input (0 - 1)",
+                            "type": "double",
+                            "minValue": -1,
+                            "maxValue": 1,
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "1ea78589-f787-4aa5-bb1a-90cd73a14386",
+                            "name": "maxInput",
+                            "displayName": "Maximum input (0 - 1)",
+                            "type": "double",
+                            "minValue": 0,
+                            "maxValue": 2,
+                            "defaultValue": 1
                         },
                         {
                             "id": "3b543c3a-1fc0-45b5-8c07-600a6045f82e",
@@ -46,16 +64,18 @@
                             "id": "d0b6c4be-339e-4b0f-a234-0611b7565395",
                             "name": "temperature",
                             "displayName": "Temperature",
-                            "displayNameEvent": "Temperature changed",
+                            "displayNameAction": "Set temperature",
                             "type": "double",
                             "unit": "DegreeCelsius",
-                            "defaultValue": 0
+                            "minValue": -20,
+                            "maxValue": 50,
+                            "defaultValue": 0,
+                            "writable": true
                         },
                         {
                             "id": "fed37466-1264-4ac1-84fd-aff3a1f7ff04",
                             "name": "input",
                             "displayName": "Input value",
-                            "displayNameEvent": "Input value changed",
                             "displayNameAction": "Set input value",
                             "type": "double",
                             "defaultValue": 0,
@@ -75,19 +95,23 @@
                     "settingsTypes": [
                         {
                             "id": "0218ffa9-3d49-4b25-a59f-c8831f190432",
-                            "name": "minHumidity",
-                            "displayName": "Minimum humidity",
+                            "name": "minInput",
+                            "displayName": "Minimum input",
                             "type": "double",
-                            "defaultValue": 0,
-                            "unit": "Percentage"
+                            "unit": "Percentage",
+                            "minValue": -100,
+                            "maxValue": 100,
+                            "defaultValue": 0
                         },
                         {
                             "id": "10afc387-68d1-47ea-a816-0d1acad47b3c",
-                            "name": "maxHumidity",
-                            "displayName": "Maximum humidity",
+                            "name": "maxInput",
+                            "displayName": "Maximum input",
                             "type": "double",
-                            "defaultValue": 100,
-                            "unit": "Percentage"
+                            "unit": "Percentage",
+                            "minValue": 0,
+                            "maxValue": 200,
+                            "defaultValue": 100
                         },
                         {
                             "id": "38064841-6121-4862-a639-08fb0b778511",
@@ -104,18 +128,18 @@
                             "id": "925225d9-2965-444a-9c42-63c2873700fb",
                             "name": "humidity",
                             "displayName": "Humidity",
-                            "displayNameEvent": "Humidity changed",
+                            "displayNameAction": "Set humidity",
                             "type": "double",
                             "unit": "Percentage",
                             "defaultValue": 0,
                             "minValue": 0,
-                            "maxValue": 100
+                            "maxValue": 100,
+                            "writable": true
                         },
                         {
                             "id": "a8223e65-e704-4f84-9bbe-d8fc42597047",
                             "name": "input",
                             "displayName": "Input value",
-                            "displayNameEvent": "Input value changed",
                             "displayNameAction": "Set input value",
                             "type": "double",
                             "defaultValue": 0,
@@ -135,19 +159,23 @@
                     "settingsTypes": [
                         {
                             "id": "32153786-f1ae-4aa4-a84c-b9054102eb92",
-                            "name": "minMoisture",
-                            "displayName": "Minimum moisture",
+                            "name": "minInput",
+                            "displayName": "Minimum input",
                             "type": "double",
-                            "defaultValue": 0,
-                            "unit": "Percentage"
+                            "unit": "Percentage",
+                            "minValue": -100,
+                            "maxValue": 100,
+                            "defaultValue": 0
                         },
                         {
                             "id": "3426817d-065e-4cfc-aa21-bb434de684d6",
-                            "name": "maxMoisture",
-                            "displayName": "Maximum moisture",
+                            "name": "maxInput",
+                            "displayName": "Maximum input",
                             "type": "double",
-                            "defaultValue": 100,
-                            "unit": "Percentage"
+                            "unit": "Percentage",
+                            "minValue": 0,
+                            "maxValue": 200,
+                            "defaultValue": 100
                         },
                         {
                             "id": "3c967a68-9951-4c9a-b019-79b913e762b6",
@@ -164,12 +192,13 @@
                             "id": "7a62e1d2-92f2-424c-876c-870478a4b2bd",
                             "name": "moisture",
                             "displayName": "Soil moisture",
-                            "displayNameEvent": "Soil moisture changed",
+                            "displayNameAction": "Set soil moisture",
                             "type": "double",
                             "unit": "Percentage",
                             "minValue": 0,
                             "maxValue": 100,
-                            "defaultValue": 0
+                            "defaultValue": 0,
+                            "writable": true
                         },
                         {
                             "id": "ce64a425-d990-4fc1-966b-be6de445792b",
@@ -196,15 +225,21 @@
                         {
                             "id": "a8ff2e16-e06c-4b1e-839a-a06691a12d64",
                             "name": "minInput",
-                            "displayName": "Minimum input value",
+                            "displayName": "Minimum input",
                             "type": "double",
+                            "unit": "Percentage",
+                            "minValue": -100,
+                            "maxValue": 100,
                             "defaultValue": 0
                         },
                         {
                             "id": "a8889e45-59e5-4cc4-b228-611f8f19f531",
                             "name": "maxInput",
-                            "displayName": "Maximum input value",
+                            "displayName": "Maximum input",
                             "type": "double",
+                            "unit": "Percentage",
+                            "minValue": 0,
+                            "maxValue": 200,
                             "defaultValue": 100
                         },
                         {
@@ -222,22 +257,23 @@
                             "id": "743514b1-8018-4525-b87a-c5f414146ff2",
                             "name": "ph",
                             "displayName": "PH",
-                            "displayNameEvent": "PH changed",
+                            "displayNameAction": "Set PH",
                             "type": "double",
                             "defaultValue": 7,
                             "minValue": 0,
-                            "maxValue": 14
+                            "maxValue": 14,
+                            "writable": true
                         },
                         {
                             "id": "614a039b-9ed9-4b62-9c74-01ba4ac42f16",
                             "name": "input",
                             "displayName": "Input value",
-                            "displayNameEvent": "Input value changed",
                             "displayNameAction": "Set input value",
                             "type": "double",
+                            "unit": "Percentage",
                             "minValue": 0,
-                            "defaultValue": 50,
                             "maxValue": 100,
+                            "defaultValue": 50,
                             "ioType": "analogOutput",
                             "writable": true
                         }
@@ -253,16 +289,36 @@
                         {
                             "id": "396bf3f9-a3fc-44c3-90f8-b316670116a7",
                             "name": "minORP",
-                            "displayName": "Minimum input value",
+                            "displayName": "Minimum ORP value",
                             "type": "double",
                             "defaultValue": -1500
                         },
                         {
                             "id": "bd0774c9-1b89-49ce-b0f8-66ff26ca10db",
                             "name": "maxORP",
-                            "displayName": "Maximum input ORP value",
+                            "displayName": "Maximum ORP value",
                             "type": "double",
                             "defaultValue": 1500
+                        },
+                        {
+                            "id": "a4776e88-80e1-4ab0-8140-2c00a79b406b",
+                            "name": "minInput",
+                            "displayName": "Minimum input",
+                            "type": "double",
+                            "minValue": -100,
+                            "maxValue": 100,
+                            "unit": "Percentage",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "4a78f063-3b3a-423e-bd73-f3c85de1b511",
+                            "name": "maxInput",
+                            "displayName": "Maximum input",
+                            "type": "double",
+                            "minValue": 0,
+                            "maxValue": 200,
+                            "unit": "Percentage",
+                            "defaultValue": 100
                         },
                         {
                             "id": "1f218ad8-652a-4bda-987d-3e183ff040b2",
@@ -279,18 +335,18 @@
                             "id": "e5ed3535-2e5d-412e-85f8-782cbccd7731",
                             "name": "orp",
                             "displayName": "ORP",
-                            "displayNameEvent": "ORP changed",
+                            "displayNameAction": "Set ORP",
                             "type": "double",
                             "unit": "MilliVolt",
                             "defaultValue": 0,
                             "minValue": -1500,
-                            "maxValue": 1500
+                            "maxValue": 1500,
+                            "writable": true
                         },
                         {
                             "id": "020ff04f-a157-4925-9c55-2b45389208fc",
                             "name": "input",
                             "displayName": "Input value",
-                            "displayNameEvent": "Input value changed",
                             "displayNameAction": "Set input value",
                             "type": "double",
                             "minValue": 0,
@@ -311,15 +367,21 @@
                         {
                             "id": "58e84041-d451-44a2-972e-13a79b449b58",
                             "name": "minInput",
-                            "displayName": "Minimum input value",
+                            "displayName": "Minimum input",
                             "type": "double",
+                            "minValue": -100,
+                            "maxValue": 100,
+                            "unit": "Percentage",
                             "defaultValue": 0
                         },
                         {
                             "id": "198847f6-a188-42b0-9e0b-15587eaabbed",
                             "name": "maxInput",
-                            "displayName": "Maximum input value",
+                            "displayName": "Maximum input",
                             "type": "double",
+                            "minValue": 0,
+                            "maxValue": 200,
+                            "unit": "Percentage",
                             "defaultValue": 100
                         },
                         {
@@ -337,23 +399,24 @@
                             "id": "a3ff7641-87d9-4b07-b8e5-e6aa92b90088",
                             "name": "o2saturation",
                             "displayName": "O2 saturation",
-                            "displayNameEvent": "O2 saturation changed",
+                            "displayNameAction": "Set O2 saturation",
                             "type": "double",
                             "unit": "Percentage",
                             "defaultValue": 0,
                             "minValue": 0,
-                            "maxValue": 100
+                            "maxValue": 100,
+                            "writable": true
                         },
                         {
                             "id": "7e74fca7-84d0-4f3e-9f26-4232b7b9f507",
                             "name": "input",
                             "displayName": "Input value",
-                            "displayNameEvent": "Input value changed",
                             "displayNameAction": "Set input value",
                             "type": "double",
                             "minValue": 0,
-                            "defaultValue": 0,
                             "maxValue": 100,
+                            "defaultValue": 0,
+                            "unit": "Percentage",
                             "ioType": "analogOutput",
                             "writable": true
                         }
@@ -371,16 +434,36 @@
                             "name": "minPressure",
                             "displayName": "Minimum pressure",
                             "type": "double",
-                            "defaultValue": 0,
-                            "unit": "MilliBar"
+                            "unit": "MilliBar",
+                            "defaultValue": 0
                         },
                         {
                             "id": "06e21251-8b4f-44a1-8504-6b51f8526bd0",
                             "name": "maxPressure",
                             "displayName": "Maximum pressure",
                             "type": "double",
-                            "defaultValue": 2000,
-                            "unit": "MilliBar"
+                            "unit": "MilliBar",
+                            "defaultValue": 2000
+                        },
+                        {
+                            "id": "58487871-e128-4f09-9412-3433574fb62d",
+                            "name": "minInput",
+                            "displayName": "Minimum input",
+                            "type": "double",
+                            "unit": "Percentage",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "21109465-d53c-4c69-b9a8-7f1c41e823b2",
+                            "name": "maxInput",
+                            "displayName": "Maximum input",
+                            "type": "double",
+                            "unit": "Percentage",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 100
                         },
                         {
                             "id": "021a17d8-9e5e-4dd6-835d-1a3e1ffd6b23",
@@ -397,10 +480,13 @@
                             "id": "e645a979-1465-4592-b8b0-f4c123db0800",
                             "name": "pressure",
                             "displayName": "Pressure",
-                            "displayNameEvent": "Pressure changed",
+                            "displayNameAction": "Set pressure",
                             "type": "double",
+                            "minValue": 0,
+                            "maxValue": 2000,
                             "unit": "MilliBar",
-                            "defaultValue": 0
+                            "defaultValue": 0,
+                            "writable": true
                         },
                         {
                             "id": "c320577c-371a-442b-ac80-b692ff2064c9",
@@ -430,16 +516,37 @@
                             "name": "minCO",
                             "displayName": "Minimum CO",
                             "type": "double",
-                            "defaultValue": 0,
-                            "unit": "PartsPerMillion"
+                            "unit": "PartsPerMillion",
+                            "minValue": 0,
+                            "defaultValue": 0
                         },
                         {
                             "id": "e9def195-1b67-4a1b-8030-cbbc6209d52e",
                             "name": "maxCO",
                             "displayName": "Maximum CO",
                             "type": "double",
-                            "defaultValue": 255,
-                            "unit": "PartsPerMillion"
+                            "unit": "PartsPerMillion",
+                            "defaultValue": 255
+                        },
+                        {
+                            "id": "d4784dde-aa9a-4be4-a16c-592373760dc8",
+                            "name": "minInput",
+                            "displayName": "Minimum input",
+                            "type": "double",
+                            "minValue": -100,
+                            "maxValue": 100,
+                            "unit": "Percentage",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "c6d9d5f4-d3d0-4284-ab82-e93cc2c30e21",
+                            "name": "maxInput",
+                            "displayName": "Maximum input",
+                            "type": "double",
+                            "minValue": 0,
+                            "maxValue": 200,
+                            "unit": "Percentage",
+                            "defaultValue": 100
                         },
                         {
                             "id": "9c8a9553-7b68-4b58-a8f1-3c6b591998c0",
@@ -456,20 +563,21 @@
                             "id": "9eebe9d2-b34b-4847-bc25-109e2b8cab24",
                             "name": "co",
                             "displayName": "CO level",
-                            "displayNameEvent": "CO level changed",
+                            "displayNameAction": "Set CO level",
                             "type": "double",
                             "minValue": 0,
                             "maxValue": "255",
                             "unit": "PartsPerMillion",
-                            "defaultValue": 0
+                            "defaultValue": 0,
+                            "writable": true
                         },
                         {
                             "id": "cf3ec5ec-7098-47c5-9666-b3c52eba1b1d",
                             "name": "input",
                             "displayName": "Input value",
-                            "displayNameEvent": "Input value changed",
                             "displayNameAction": "Set input value",
                             "type": "double",
+                            "unit": "Percentage",
                             "defaultValue": 0,
                             "minValue": 0,
                             "maxValue": 100,
@@ -490,16 +598,36 @@
                             "name": "minCO2",
                             "displayName": "Minimum CO2",
                             "type": "double",
-                            "defaultValue": 0,
-                            "unit": "PartsPerMillion"
+                            "unit": "PartsPerMillion",
+                            "defaultValue": 0
                         },
                         {
                             "id": "a3029bee-8b13-4aed-8ebd-eaceb603f8ef",
                             "name": "maxCO2",
                             "displayName": "Maximum CO2",
                             "type": "double",
-                            "defaultValue": 2000,
-                            "unit": "PartsPerMillion"
+                            "unit": "PartsPerMillion",
+                            "defaultValue": 2000
+                        },
+                        {
+                            "id": "67e6b107-826a-48bc-9bd9-144d9b73a778",
+                            "name": "minInput",
+                            "displayName": "Minimum input",
+                            "type": "double",
+                            "minValue": -100,
+                            "maxValue": 100,
+                            "unit": "Percentage",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "b79dca8c-cd73-4429-8a01-c194b2c43ea2",
+                            "name": "maxInput",
+                            "displayName": "Maximum input",
+                            "type": "double",
+                            "minValue": 0,
+                            "maxValue": 200,
+                            "unit": "Percentage",
+                            "defaultValue": 100
                         },
                         {
                             "id": "236831a8-a455-4e38-a9cd-eabbebaa3f67",
@@ -516,11 +644,13 @@
                             "id": "755c4c7f-093e-41dd-a38d-9ee18c9890d6",
                             "name": "co2",
                             "displayName": "CO2",
+                            "displayNameAction": "Set CO2",
                             "type": "double",
                             "unit": "PartsPerMillion",
                             "minValue": 0,
                             "maxValue": 2000,
-                            "defaultValue": 0
+                            "defaultValue": 0,
+                            "writable": true
                         },
                         {
                             "id": "7dc765f8-fa9b-4199-8f21-49ed452f226d",
@@ -528,6 +658,7 @@
                             "displayName": "Input value",
                             "displayNameAction": "Set input value",
                             "type": "double",
+                            "unit": "Percentage",
                             "defaultValue": 0,
                             "minValue": 0,
                             "maxValue": 100,
@@ -560,6 +691,26 @@
                             "unit": "PartsPerMillion"
                         },
                         {
+                            "id": "6fbb8fe6-4ac1-4ad5-9621-7a786b632225",
+                            "name": "minInput",
+                            "displayName": "Minimum input",
+                            "type": "double",
+                            "minValue": -100,
+                            "maxValue": 100,
+                            "unit": "Percentage",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "93827b27-8dba-40d9-b3fa-dde42bfcbcbc",
+                            "name": "maxInput",
+                            "displayName": "Maximum input",
+                            "type": "double",
+                            "minValue": 0,
+                            "maxValue": 200,
+                            "unit": "Percentage",
+                            "defaultValue": 100
+                        },
+                        {
                             "id": "1c7465b1-490d-43db-bb67-a179a6923a57",
                             "name": "accuracy",
                             "displayName": "Accuracy (decimal places)",
@@ -574,18 +725,21 @@
                             "id": "5135648f-57b7-44b0-b9d0-c5accad09356",
                             "name": "gasLevel",
                             "displayName": "Gas level",
-                            "displayNameEvent": "Gas level changed",
+                            "displayNameAction": "Set gas level",
                             "type": "double",
+                            "minValue": 0,
+                            "maxValue": 10000,
                             "unit": "PartsPerMillion",
-                            "defaultValue": 0
+                            "defaultValue": 0,
+                            "writable": true
                         },
                         {
                             "id": "e3eb500a-ac00-426c-932a-dee4fd6fbcf5",
                             "name": "input",
                             "displayName": "Input value",
-                            "displayNameEvent": "Input value changed",
                             "displayNameAction": "Set input value",
                             "type": "double",
+                            "unit": "Percentage",
                             "defaultValue": 0,
                             "minValue": 0,
                             "maxValue": 100,
@@ -618,6 +772,26 @@
                             "unit": "Lux"
                         },
                         {
+                            "id": "72e0244a-97e0-473b-94ac-94014c488c08",
+                            "name": "minInput",
+                            "displayName": "Minimum input",
+                            "type": "double",
+                            "minValue": -100,
+                            "maxValue": 100,
+                            "unit": "Percentage",
+                            "defaultValue": 0
+                        },
+                        {
+                            "id": "265bf736-7d60-4361-98fb-83b11c277d87",
+                            "name": "maxInput",
+                            "displayName": "Maximum input",
+                            "type": "double",
+                            "minValue": 0,
+                            "maxValue": 200,
+                            "unit": "Percentage",
+                            "defaultValue": 100
+                        },
+                        {
                             "id": "f800988f-1ad5-4ffb-9aa8-70ef17614966",
                             "name": "accuracy",
                             "displayName": "Accuracy (decimal places)",
@@ -632,10 +806,11 @@
                             "id": "fe12ef32-9f2f-41cd-acb7-6b8e4acffa3b",
                             "name": "lightIntensity",
                             "displayName": "Light intensity",
-                            "displayNameEvent": "Light intensity changed",
+                            "displayNameAction": "Set light intensity",
                             "type": "double",
                             "unit": "Lux",
-                            "defaultValue": 0
+                            "defaultValue": 0,
+                            "writable": true
                         },
                         {
                             "id": "520e5d27-7d15-4d79-94cf-5d01f5a09ea8",
@@ -714,6 +889,8 @@
                             "name": "minInputValue",
                             "displayName": "Minimum input value",
                             "type": "double",
+                            "minValue": -1,
+                            "maxValue": 1,
                             "defaultValue": 0
                         },
                         {
@@ -721,6 +898,8 @@
                             "name": "maxInputValue",
                             "displayName": "Maximum input value",
                             "type": "double",
+                            "minValue": 0,
+                            "maxValue": 2,
                             "defaultValue": 1
                         }
                     ],

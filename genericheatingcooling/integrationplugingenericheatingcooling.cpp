@@ -51,6 +51,12 @@ void IntegrationPluginGenericHeatingCooling::setupThing(ThingSetupInfo *info)
             if (paramTypeId == thermostatSettingsTemperatureDifferenceParamTypeId) {
                 thermostatCheckPowerOutputState(thing);
             }
+            if (paramTypeId == thermostatSettingsMinTargetTemperatureParamTypeId) {
+                thing->setStateMinValue(thermostatTargetTemperatureStateTypeId, value);
+            }
+            if (paramTypeId == thermostatSettingsMaxTargetTemperatureParamTypeId) {
+                thing->setStateMaxValue(thermostatTargetTemperatureStateTypeId, value);
+            }
         });
     } else if (thing->thingClassId() == sgReadyThingClassId) {
         bool relay1 = thing->stateValue(sgReadyRelay1StateTypeId).toBool();
