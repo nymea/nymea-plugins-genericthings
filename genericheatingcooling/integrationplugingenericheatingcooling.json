@@ -90,15 +90,6 @@
                     "interfaces": ["thermostat"],
                     "settingsTypes": [
                         {
-                            "id": "64bf308f-a543-4e02-b787-1a1714c1f978",
-                            "name": "temperatureDifference",
-                            "displayName": "Temperature difference",
-                            "type": "double",
-                            "unit": "DegreeCelsius",
-                            "minValue": 0.00,
-                            "defaultValue": 2.00
-                        },
-                        {
                             "id": "67451c97-50e1-4ea6-ac43-4386fbd26698",
                             "name": "minTargetTemperature",
                             "displayName": "Minimum temperature",
@@ -117,6 +108,22 @@
                             "minValue": -99,
                             "maxValue": 100,
                             "defaultValue": 50
+                        },
+                        {
+                            "id": "d14676ba-6f7d-439f-ac67-3e91788c9ed1",
+                            "name": "autoControl",
+                            "displayName": "Auto heating/cooling",
+                            "type": "bool",
+                            "defaultValue": false
+                        },
+                        {
+                            "id": "64bf308f-a543-4e02-b787-1a1714c1f978",
+                            "name": "temperatureDifference",
+                            "displayName": "Temperature difference",
+                            "type": "double",
+                            "unit": "DegreeCelsius",
+                            "minValue": 0.00,
+                            "defaultValue": 2.00
                         }
                     ],
                     "stateTypes": [
