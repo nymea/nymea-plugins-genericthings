@@ -29,6 +29,65 @@
                     ]
                 },
                 {
+                    "id": "7bba50d7-e18a-41a8-8267-7aa4876ec475",
+                    "name": "energyMeter",
+                    "displayName": "Generic energy meter",
+                    "createMethods": ["user"],
+                    "interfaces": ["energymeter"],
+                    "stateTypes": [
+                        {
+                            "id": "d5f3fb79-3654-4aaf-ae30-3a761fe2dfd8",
+                            "name": "currentPower",
+                            "displayName": "Current Power usage",
+                            "displayNameAction": "Set current Power usage",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Watt",
+                            "writable": true
+                        },
+                        {
+                            "id": "db36a37d-7c48-4208-8b6e-a1b93acb827f",
+                            "name": "totalEnergyConsumed",
+                            "displayName": "Total obtained energy",
+                            "displayNameAction": "Set total obtained energy",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "KiloWattHour",
+                            "writable": true
+                        },
+                        {
+                            "id": "e73d72f3-b172-4db0-9120-0f713e210bdf",
+                            "name": "totalEnergyProduced",
+                            "displayName": "Total returned energy",
+                            "displayNameAction": "Set total returned energy",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "KiloWattHour",
+                            "writable": true
+                        },
+                        {
+                            "id": "e493ec25-fb8a-4e36-84d9-4430418b3b6f",
+                            "name": "currentPhaseA",
+                            "displayName": "Current on phase A",
+                            "displayNameAction": "Set current on phase A",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Ampere",
+                            "writable": true
+                        },
+                        {
+                            "id": "03deaf24-e515-4649-8979-ef8ae8ee7c02",
+                            "name": "voltagePhaseA",
+                            "displayName": "Voltage on phase A",
+                            "displayNameAction": "Set voltage on phase A",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Volt",
+                            "writable": true
+                        }
+                    ]
+                },
+                {
                     "id": "c3123967-f741-4fe1-a0d4-9a3e405d7e52",
                     "name": "impulseSmartMeter",
                     "displayName": "Impulse based energy meter",

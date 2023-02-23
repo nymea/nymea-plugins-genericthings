@@ -89,6 +89,19 @@ void IntegrationPluginGenericEnergy::executeAction(ThingActionInfo *info)
         } else {
             Q_ASSERT_X(false, "executeAction", QString("Unhandled actionTypeId: %1").arg(action.actionTypeId().toString()).toUtf8());
         }
+    } else if (thing->thingClassId() == energyMeterThingClassId) {
+        if (action.actionTypeId() == energyMeterCurrentPowerActionTypeId) {
+            thing->setStateValue(energyMeterCurrentPowerStateTypeId, action.paramValue(energyMeterCurrentPowerActionCurrentPowerParamTypeId));
+        } else if (action.actionTypeId() == energyMeterTotalEnergyConsumedActionTypeId) {
+            thing->setStateValue(energyMeterTotalEnergyConsumedStateTypeId, action.paramValue(energyMeterTotalEnergyConsumedActionTotalEnergyConsumedParamTypeId));
+        } else if (action.actionTypeId() == energyMeterTotalEnergyProducedActionTypeId) {
+            thing->setStateValue(energyMeterTotalEnergyProducedStateTypeId, action.paramValue(energyMeterTotalEnergyProducedActionTotalEnergyProducedParamTypeId));
+        } else if (action.actionTypeId() == energyMeterCurrentPhaseAActionTypeId) {
+            thing->setStateValue(energyMeterCurrentPhaseAStateTypeId, action.paramValue(energyMeterCurrentPhaseAActionCurrentPhaseAParamTypeId));
+        } else if (action.actionTypeId() == energyMeterVoltagePhaseAActionTypeId) {
+            thing->setStateValue(energyMeterVoltagePhaseAStateTypeId, action.paramValue(energyMeterVoltagePhaseAActionVoltagePhaseAParamTypeId));
+        }
+        info->finish(Thing::ThingErrorNoError);
     } else if (thing->thingClassId() == impulseSmartMeterThingClassId) {
         if (action.actionTypeId() == impulseSmartMeterImpulseInputActionTypeId) {
             bool value = info->action().param(impulseSmartMeterImpulseInputActionImpulseInputParamTypeId).value().toBool();
