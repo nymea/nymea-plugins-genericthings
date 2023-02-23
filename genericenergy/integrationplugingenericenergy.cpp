@@ -64,11 +64,14 @@ void IntegrationPluginGenericEnergy::setupThing(ThingSetupInfo *info)
             thing->setStateValue(impulseSmartMeterCurrentPowerStateTypeId, power*1000);
             m_pulsesPerTimeframe.insert(thing, 0);
         });
-    } else if  (thing->thingClassId() == batteryThingClassId) {
+    } else if  (thing->thingClassId() == energyStorageThingClassId) {
         connect(thing, &Thing::settingChanged, [thing](const ParamTypeId &settingTypeId, const QVariant &value){
-            if (settingTypeId == batterySettingsCriticalLevelParamTypeId) {
-                int currentBatteryLevel = thing->stateValue(batteryBatteryLevelStateTypeId).toInt();
-                thing->setStateValue(batteryBatteryCriticalStateTypeId, currentBatteryLevel <= value.toInt());
+            if (settingTypeId == energyStorageSettingsCapacityParamTypeId) {
+                thing->setStateValue(energyStorageCapacityStateTypeId, value);
+            }
+            if (settingTypeId == energyStorageSettingsCriticalLevelParamTypeId) {
+                int currentBatteryLevel = thing->stateValue(energyStorageBatteryLevelStateTypeId).toInt();
+                thing->setStateValue(energyStorageBatteryCriticalStateTypeId, currentBatteryLevel <= value.toInt());
             }
         });
     }
@@ -139,17 +142,18 @@ void IntegrationPluginGenericEnergy::executeAction(ThingActionInfo *info)
         } else {
             Q_ASSERT_X(false, "executeAction", QString("Unhandled actionTypeId: %1").arg(action.actionTypeId().toString()).toUtf8());
         }
-    } else if (thing->thingClassId() == batteryThingClassId) {
-        if (action.actionTypeId() == batteryBatteryLevelControlActionTypeId) {
-            int value = action.paramValue(batteryBatteryLevelControlActionBatteryLevelControlParamTypeId).toInt();
-            thing->setStateValue(batteryBatteryLevelStateTypeId, value);
-            thing->setStateValue(batteryBatteryLevelControlStateTypeId, value);
-            int criticalValue = thing->setting(batterySettingsCriticalLevelParamTypeId).toInt();
-            thing->setStateValue(batteryBatteryCriticalStateTypeId, value <= criticalValue);
+    } else if (thing->thingClassId() == energyStorageThingClassId) {
+        if (action.actionTypeId() == energyStorageBatteryLevelActionTypeId) {
+            int value = action.paramValue(energyStorageBatteryLevelActionBatteryLevelParamTypeId).toInt();
+            thing->setStateValue(energyStorageBatteryLevelStateTypeId, value);
+            int criticalValue = thing->setting(energyStorageSettingsCriticalLevelParamTypeId).toInt();
+            thing->setStateValue(energyStorageBatteryCriticalStateTypeId, value <= criticalValue);
             info->finish(Thing::ThingErrorNoError);
-            return;
-        } else if (action.actionTypeId() == batteryChargingActionTypeId) {
-            thing->setStateValue(batteryChargingStateTypeId, action.paramValue(batteryChargingActionChargingParamTypeId));
+        } else if (action.actionTypeId() == energyStorageCurrentPowerActionTypeId) {
+            thing->setStateValue(energyStorageCurrentPowerStateTypeId, action.paramValue(energyStorageCurrentPowerActionCurrentPowerParamTypeId));
+            info->finish(Thing::ThingErrorNoError);
+        } else if (action.actionTypeId() == energyStorageChargingActionTypeId) {
+            thing->setStateValue(energyStorageChargingStateTypeId, action.paramValue(energyStorageChargingActionChargingParamTypeId));
             info->finish(Thing::ThingErrorNoError);
             return;
         }
