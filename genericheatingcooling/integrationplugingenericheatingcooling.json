@@ -87,7 +87,7 @@
                     "name": "thermostat",
                     "displayName": "Generic thermostat",
                     "createMethods": ["user"],
-                    "interfaces": ["thermostat"],
+                    "interfaces": ["thermostat", "temperaturesensor"],
                     "settingsTypes": [
                         {
                             "id": "67451c97-50e1-4ea6-ac43-4386fbd26698",
