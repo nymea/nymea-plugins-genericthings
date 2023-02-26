@@ -191,6 +191,10 @@ void IntegrationPluginGenericHeatingCooling::executeAction(ThingActionInfo *info
 
 void IntegrationPluginGenericHeatingCooling::thermostatCheckPowerOutputState(Thing *thing)
 {
+    bool autoControl = thing->setting(thermostatSettingsAutoControlParamTypeId).toBool();
+    if (!autoControl) {
+        return;
+    }
     double targetTemperature = thing->stateValue(thermostatTargetTemperatureStateTypeId).toDouble();
     double actualTemperature = thing->stateValue(thermostatTemperatureStateTypeId).toDouble();
     double temperatureDifference = thing->setting(thermostatSettingsTemperatureDifferenceParamTypeId).toDouble();
