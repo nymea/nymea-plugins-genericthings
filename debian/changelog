@@ -1,3 +1,12 @@
+nymea-plugins-genericthings (1.7.0) jammy; urgency=medium
+
+  [ Michael Zanetti ]
+  * Sensors: Add min/max values to co2sensor
+  * Improve generic sensors and thermostat
+  * Thermostat: Add a setting to explicitly enable the automatic mode
+
+ -- jenkins <developer@nymea.io>  Sun, 26 Feb 2023 21:56:41 +0100
+
 nymea-plugins-genericthings (1.6.3) jammy; urgency=medium
 
 
