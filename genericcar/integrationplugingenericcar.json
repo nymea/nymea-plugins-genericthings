@@ -43,6 +43,16 @@
                             "minValue": 1,
                             "maxValue": 3,
                             "defaultValue": 1
+                        },
+                        {
+                            "id": "3ac9bfc1-f81b-4586-b90b-3ad98b8b8069",
+                            "name": "chargingEnergyLoss",
+                            "displayName": "Charging energy loss",
+                            "type": "uint",
+                            "unit": "Percentage",
+                            "minValue": 5,
+                            "maxValue": 35,
+                            "defaultValue": 10
                         }
                     ],
                     "stateTypes": [
