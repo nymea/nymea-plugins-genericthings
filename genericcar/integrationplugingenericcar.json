@@ -21,7 +21,7 @@
                             "displayName": "Minimum charging current",
                             "type": "uint",
                             "unit": "Ampere",
-                            "minValue": 4,
+                            "minValue": 6,
                             "maxValue": 16,
                             "defaultValue": 6
                         },
