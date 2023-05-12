@@ -148,11 +148,20 @@
                 },
                 {
                     "id": "81418556-cae3-4803-aa0c-9c4b3304a3eb",
-                    "name": "battery",
-                    "displayName": "Generic battery",
+                    "name": "energyStorage",
+                    "displayName": "Generic energy storage",
                     "createMethods": ["user"],
-                    "interfaces": ["battery"],
+                    "interfaces": ["energystorage"],
                     "settingsTypes": [
+                        {
+                            "id": "c170df55-029d-4b67-ae09-248645dd7040",
+                            "name": "capacity",
+                            "displayName": "Capacity",
+                            "type": "double",
+                            "unit": "KiloWattHour",
+                            "minValue": 0,
+                            "defaultValue": 50000
+                        },
                         {
                             "id": "8d875cb7-3a14-42d1-bf1b-759e5fd95a8f",
                             "name": "criticalLevel",
@@ -165,27 +174,28 @@
                     ],
                     "stateTypes": [
                         {
+                            "id": "8d1c43f9-4528-4797-8f6a-f7b91fbb91d0",
+                            "name": "currentPower",
+                            "displayName": "Current power",
+                            "displayNameAction": "Set current power",
+                            "type": "double",
+                            "unit": "Watt",
+                            "defaultValue": 0,
+                            "writable": true,
+                            "minValue": -10000,
+                            "maxValue": 10000,
+                            "ioType": "analogOutput"
+                        },
+                        {
                             "id": "d37eed4a-befc-40d4-b435-40a761f99314",
                             "name": "batteryLevel",
                             "displayName": "Battery level",
-                            "displayNameEvent": "Battery level changed",
+                            "displayNameAction": "Set battery level",
                             "type": "int",
                             "unit": "Percentage",
                             "defaultValue": 0,
                             "minValue": 0,
-                            "maxValue": 100
-                        },
-                        {
-                            "id": "3336f0c2-158b-4353-b74f-f1bb9c4e8447",
-                            "name": "batteryLevelControl",
-                            "displayName": "Battery level control",
-                            "displayNameEvent": "Battery level control changed",
-                            "displayNameAction": "Set battery level",
-                            "type": "double",
-                            "minValue": 0,
                             "maxValue": 100,
-                            "defaultValue": 0,
-                            "unit": "Percentage",
                             "writable": true,
                             "ioType": "analogOutput"
                         },
@@ -207,6 +217,14 @@
                             "displayNameEvent": "Battery entered or left critical state",
                             "type": "bool",
                             "defaultValue": false
+                        },
+                        {
+                            "id": "bf076970-20fe-46f7-b4bc-fe34ec833829",
+                            "name": "capacity",
+                            "displayName": "Capacity",
+                            "type": "double",
+                            "unit": "KiloWattHour",
+                            "defaultValue": 10000
                         }
                     ]
                 },
