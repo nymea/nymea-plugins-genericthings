@@ -52,7 +52,7 @@ The name of the ParamType (ThingClass: car, Type: settings, ID: {57f36386-dd71-4
         <extracomment>The name of the StateType ({20faf2b8-2b40-4bee-b228-97dbaf0cdffc}) of ThingClass car
 ----------
 The name of the ParamType (ThingClass: car, Type: settings, ID: {0c55516d-4285-4d02-8926-1dae03649e18})</extracomment>
-        <translation>Minmaler Ladestrom</translation>
+        <translation>Minimaler Ladestrom</translation>
     </message>
     <message>
         <location filename="../../../build-nymea-plugins-genericthings-Desktop-Debug/genericcar/plugininfo.h" line="69"/>
