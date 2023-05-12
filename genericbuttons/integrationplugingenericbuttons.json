@@ -26,7 +26,8 @@
                         {
                             "id": "48bd63b3-da71-4aef-a6b2-e583cf9a7196",
                             "name": "pressed",
-                            "displayName": "Pressed"
+                            "displayName": "Pressed",
+                            "suggestLogging": true
                         }
                     ]
                 },
