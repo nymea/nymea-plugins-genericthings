@@ -74,7 +74,16 @@ void IntegrationPluginGenericEnergy::setupThing(ThingSetupInfo *info)
                 thing->setStateValue(energyStorageBatteryCriticalStateTypeId, currentBatteryLevel <= value.toInt());
             }
         });
+    } else if (thing->thingClassId() == wallboxThingClassId) {
+        connect(thing, &Thing::settingChanged, [thing](const ParamTypeId &settingTypeId, const QVariant &value) {
+            if (settingTypeId == wallboxSettingsMinChargingCurrentParamTypeId) {
+                thing->setStateMinValue(wallboxMaxChargingCurrentStateTypeId, value);
+            } else if (settingTypeId == wallboxSettingsMaxChargingCurrentParamTypeId) {
+                thing->setStateMaxValue(wallboxMaxChargingCurrentStateTypeId, value);
+            }
+        });
     }
+
 
     // Fall trough, if not already finished and returned...
     info->finish(Thing::ThingErrorNoError);
@@ -157,6 +166,30 @@ void IntegrationPluginGenericEnergy::executeAction(ThingActionInfo *info)
             info->finish(Thing::ThingErrorNoError);
             return;
         }
+    } else if (thing->thingClassId() == wallboxThingClassId) {
+        if (action.actionTypeId() == wallboxChargingActionTypeId) {
+            thing->setStateValue(wallboxChargingStateTypeId, action.paramValue(wallboxChargingActionChargingParamTypeId).toBool());
+        } else if (action.actionTypeId() == wallboxCurrentPowerActionTypeId) {
+            thing->setStateValue(wallboxCurrentPowerStateTypeId, action.paramValue(wallboxCurrentPowerActionCurrentPowerParamTypeId).toDouble());
+        } else if (action.actionTypeId() == wallboxDesiredPhaseCountActionTypeId) {
+            thing->setStateValue(wallboxDesiredPhaseCountStateTypeId, action.paramValue(wallboxDesiredPhaseCountActionDesiredPhaseCountParamTypeId).toUInt());
+        } else if (action.actionTypeId() == wallboxMaxChargingCurrentActionTypeId) {
+            thing->setStateValue(wallboxMaxChargingCurrentStateTypeId, action.paramValue(wallboxMaxChargingCurrentActionMaxChargingCurrentParamTypeId).toUInt());
+        } else if (action.actionTypeId() == wallboxPhaseCountActionTypeId) {
+            thing->setStateValue(wallboxPhaseCountStateTypeId, action.paramValue(wallboxPhaseCountActionPhaseCountParamTypeId).toUInt());
+        } else if (action.actionTypeId() == wallboxPluggedInActionTypeId) {
+            thing->setStateValue(wallboxPluggedInStateTypeId, action.paramValue(wallboxPluggedInActionPluggedInParamTypeId).toBool());
+        } else if (action.actionTypeId() == wallboxPowerActionTypeId) {
+            thing->setStateValue(wallboxPowerStateTypeId, action.paramValue(wallboxPowerActionPowerParamTypeId).toBool());
+        } else if (action.actionTypeId() == wallboxTotalEnergyConsumedActionTypeId) {
+            thing->setStateValue(wallboxTotalEnergyConsumedStateTypeId, action.paramValue(wallboxTotalEnergyConsumedActionTotalEnergyConsumedParamTypeId).toDouble());
+        } else {
+            Q_ASSERT_X(false, "Generic Wallbox", QString("Unhandled action: %1").arg(action.actionTypeId().toString()).toUtf8());
+            info->finish(Thing::ThingErrorUnsupportedFeature);
+            return;
+        }
+        info->finish(Thing::ThingErrorNoError);
+
     } else {
         Q_ASSERT_X(false, "executeAction", QString("Unhandled thingClassId: %1").arg(thing->thingClassId().toString()).toUtf8());
     }
