@@ -54,8 +54,10 @@ private:
     double mapDoubleValue(double value, double fromMin, double fromMax, double toMin, double toMax);
 
     QHash<Thing *, QTimer *> m_extendedBlindPercentageTimer;
+    QHash<Thing *, QTimer *> m_extendedAwningPercentageTimer;
     QHash<Thing *, QTimer *> m_venetianBlindAngleTimer;
     QHash<Thing *, uint> m_extendedBlindTargetPercentage;
+    QHash<Thing *, uint> m_extendedAwningTargetPercentage;
     QHash<Thing *, int> m_venetianBlindTargetAngle;
 
     enum BlindState {

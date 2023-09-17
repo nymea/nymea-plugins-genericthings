@@ -70,6 +70,98 @@
                     ]
                 },
                 {
+                    "id": "be9ffcc5-28b9-4db9-aaec-d6e758776a60",
+                    "name": "extendedAwning",
+                    "displayName": "Generic awning with position control",
+                    "createMethods": ["user"],
+                    "interfaces": ["extendedawning"],
+                    "settingsTypes": [
+                        {
+                            "id": "8f1d651d-3196-48c7-b752-9d906c44168c",
+                            "name": "closingDuration",
+                            "displayName": "Closing duration [ms]",
+                            "type": "uint",
+                            "minValue": 1000,
+                            "defaultValue": 5000
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "43c174e2-31d2-4256-a81f-09997ec1c0a3",
+                            "name": "openingOutput",
+                            "displayName": "Opening output",
+                            "displayNameEvent": "Opening output changed",
+                            "displayNameAction": "Set opening output",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "ioType": "digitalInput",
+                            "writable": true
+                        },
+                        {
+                            "id": "4992092c-d765-4764-a3d5-658171a74093",
+                            "name": "closingOutput",
+                            "displayName": "Closing output",
+                            "displayNameEvent": "Closing output changed",
+                            "displayNameAction": "Set closing output",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "ioType": "digitalInput",
+                            "writable": true
+                        },
+                        {
+                            "id": "c24f6229-91df-4ca5-8555-d6d5d948062c",
+                            "name": "status",
+                            "displayName": "Status",
+                            "displayNameEvent": "Status changed",
+                            "type": "QString",
+                            "possibleValues": [
+                                "Opening",
+                                "Stopped",
+                                "Closing"
+                            ],
+                            "defaultValue": "Stopped"
+                        },
+                        {
+                            "id": "010d3f47-7c05-4e71-a2f9-3f53958e8095",
+                            "name": "moving",
+                            "type": "bool",
+                            "displayName": "Moving",
+                            "displayNameEvent": "Moving changed",
+                            "defaultValue": false
+                        },
+                        {
+                            "id": "ce82e5d1-dbb8-4916-a966-a2ab85e4cda7",
+                            "name": "percentage",
+                            "displayName": "Percentage",
+                            "displayNameEvent": "Percentage changed",
+                            "displayNameAction": "Set percentage",
+                            "type": "int",
+                            "minValue": 0,
+                            "maxValue": 100,
+                            "defaultValue": 0,
+                            "unit": "Percentage",
+                            "writable": true
+                        }
+                    ],
+                    "actionTypes": [
+                        {
+                            "id": "4ee66b18-0c2b-4578-9ae1-34d816e84563",
+                            "name": "open",
+                            "displayName": "Open"
+                        },
+                        {
+                            "id": "48ae5686-7bd6-4f10-a6a4-2ac502aafa5f",
+                            "name": "stop",
+                            "displayName": "Stop"
+                        },
+                        {
+                            "id": "6e71e4a1-af8b-4a93-a66c-ef1782e03621",
+                            "name": "close",
+                            "displayName": "Close"
+                        }
+                    ]
+                },
+                {
                     "id": "17ee3657-6ad8-4ae2-8959-3cf66cec8d13",
                     "name": "blind",
                     "displayName": "Generic blind",
