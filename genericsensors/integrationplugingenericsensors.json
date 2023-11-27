@@ -978,6 +978,28 @@
                             "writable": true
                         }
                     ]
+                },
+                {
+                    "id": "3e03b237-a098-442c-a226-d51468bdbecc",
+                    "name": "vibrationSensor",
+                    "displayName": "Vibration sensor",
+                    "createMethods": [ "user" ],
+                    "interfaces": [ "vibrationsensor" ],
+                    "actionTypes": [
+                        {
+                            "id": "f6710702-5f1a-4819-8cc8-2ddb53134870",
+                            "name": "triggerVibrationAlert",
+                            "displayName": "Trigger vibration alert"
+                        }
+                    ],
+                    "eventTypes": [
+                        {
+                            "id": "c82e720b-7615-427b-9ae1-19fd19e524db",
+                            "name": "vibrationDetected",
+                            "displayName": "Vibration detected",
+                            "suggestLogging": true
+                        }
+                    ]
                 }
             ]
         }
