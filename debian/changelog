@@ -1,3 +1,12 @@
+nymea-plugins-genericthings (1.9.0) jammy; urgency=medium
+
+  [ Michael Zanetti ]
+  * Generic Energy: Add a generic wallbox
+  * Generic shading: Add generic awning with position control
+  * GenericSensors: Add a generic vibration sensor
+
+ -- jenkins <developer@nymea.io>  Tue, 28 Nov 2023 10:40:18 +0100
+
 nymea-plugins-genericthings (1.8.4) jammy; urgency=medium
 
 
