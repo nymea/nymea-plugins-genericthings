@@ -289,6 +289,117 @@
                             "writable": true
                         }
                     ]
+                },
+                {
+                    "id": "6f453eaa-7594-4be8-a92d-14878193071a",
+                    "name": "wallbox",
+                    "displayName": "Generic wallbox",
+                    "createMethods": ["user"],
+                    "interfaces": ["evcharger", "smartmeterconsumer"],
+                    "settingsTypes": [
+                        {
+                            "id": "03da62b5-9b6a-4cd0-8e68-8c93da98e2fe",
+                            "name": "minChargingCurrent",
+                            "displayName": "Minimum charging current",
+                            "type": "uint",
+                            "minValue": 0,
+                            "maxValue": 6,
+                            "defaultValue": 6
+                        },
+                        {
+                            "id": "017b2d92-eb57-4177-b489-437b04e212eb",
+                            "name": "maxChargingCurrent",
+                            "displayName": "Maximum charging current",
+                            "type": "uint",
+                            "minValue": 6,
+                            "maxValue": 64,
+                            "defaultValue": 32
+                        }
+                    ],
+                    "stateTypes": [
+                        {
+                            "id": "1e0890e5-065a-455a-a068-10b0231897f4",
+                            "name": "maxChargingCurrent",
+                            "displayName": "Maximum charging current",
+                            "displayNameAction": "Set maximum charging current",
+                            "type": "uint",
+                            "unit": "Ampere",
+                            "minValue": 6,
+                            "maxValue": 32,
+                            "defaultValue": 6,
+                            "writable": true
+                        },
+                        {
+                            "id": "51c7b606-1eb0-418a-8203-3f0fb9d6e454",
+                            "name": "power",
+                            "displayName": "Charging allowed",
+                            "displayNameAction": "Set charging allowed",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true
+                        },
+                        {
+                            "id": "e9cc633d-35a6-4a86-8e97-14b12ba06d8e",
+                            "name": "pluggedIn",
+                            "displayName": "Plugged in",
+                            "displayNameAction": "Set plugged in",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true
+                        },
+                        {
+                            "id": "b5d43614-7ed0-4c6e-b48a-f74aa9884769",
+                            "name": "charging",
+                            "displayName": "Charging",
+                            "displayNameAction": "Set charging",
+                            "type": "bool",
+                            "defaultValue": false,
+                            "writable": true
+                        },
+                        {
+                            "id": "08fbe34e-735d-4ce5-81c7-ea1c7b07877b",
+                            "name": "phaseCount",
+                            "displayName": "Used phase count",
+                            "displayNameAction": "Set phase count",
+                            "type": "uint",
+                            "minValue": 1,
+                            "maxValue": 3,
+                            "defaultValue": 3,
+                            "writable": true
+                        },
+                        {
+                            "id": "68239a43-c627-4b31-bc48-e8a814066cc5",
+                            "name": "desiredPhaseCount",
+                            "displayName": "Desired phase count",
+                            "displayNameAction": "Set desired phase count",
+                            "type": "uint",
+                            "possibleValues": [1, 3],
+                            "minValue": 1,
+                            "maxValue": 3,
+                            "defaultValue": 3,
+                            "writable": true
+                        },
+                        {
+                            "id": "596a002d-77f4-410c-8ca9-3a4bb8051328",
+                            "name": "currentPower",
+                            "displayName": "Current power consumption",
+                            "displayNameAction": "Set current power",
+                            "type": "double",
+                            "unit": "Watt",
+                            "defaultValue": 0,
+                            "writable": true
+                        },
+                        {
+                            "id": "c3b4303f-7267-4401-b2da-2378d39d762d",
+                            "name": "totalEnergyConsumed",
+                            "displayName": "Total energy consumption",
+                            "displayNameAction": "Set total energy consumption",
+                            "type": "double",
+                            "unit": "KiloWattHour",
+                            "defaultValue": 0,
+                            "writable": true
+                        }
+                    ]
                 }
             ]
         }
