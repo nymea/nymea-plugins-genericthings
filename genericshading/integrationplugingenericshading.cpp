@@ -86,6 +86,49 @@ void IntegrationPluginGenericShading::setupThing(ThingSetupInfo *info)
                 }
             }
         });
+    } else if (thing->thingClassId() == extendedAwningThingClassId) {
+            uint closingDuration = thing->setting(extendedAwningSettingsClosingDurationParamTypeId).toUInt();
+            QTimer* timer = new QTimer(this);
+            timer->setInterval(closingDuration/100.00); // closing timer / 100 to update on every percent
+            m_extendedAwningPercentageTimer.insert(thing, timer);
+            connect(thing, &Thing::settingChanged, thing, [timer] (const ParamTypeId &paramTypeId, const QVariant &value) {
+                if (paramTypeId == extendedAwningSettingsClosingDurationParamTypeId) {
+                    timer->setInterval(value.toUInt()/100.00);
+                }
+            });
+            connect(timer, &QTimer::timeout, this, [thing, this] {
+                uint currentPercentage = thing->stateValue(extendedAwningPercentageStateTypeId).toUInt();
+
+                if (thing->stateValue(extendedAwningStatusStateTypeId).toString() == "Closing") {
+
+                    if (currentPercentage == 100) {
+                        setBlindState(BlindStateStopped, thing);
+                        qCDebug(dcGenericShading()) << "Extended awning is closed, stopping timer";
+                    } else {
+                        currentPercentage++;
+                        thing->setStateValue(extendedAwningPercentageStateTypeId, currentPercentage);
+                    }
+                } else if (thing->stateValue(extendedAwningStatusStateTypeId).toString() == "Opening") {
+
+                    if (currentPercentage == 0) {
+                        setBlindState(BlindStateStopped, thing);
+                        qCDebug(dcGenericShading()) << "Extended awning is opened, stopping timer";
+                    } else {
+                        currentPercentage--;
+                        thing->setStateValue(extendedAwningPercentageStateTypeId, currentPercentage);
+                    }
+                } else {
+                    setBlindState(BlindStateStopped, thing);
+                }
+
+                if (m_extendedAwningPercentageTimer.contains(thing)) {
+                    uint targetPercentage = m_extendedAwningTargetPercentage.value(thing);
+                    if (targetPercentage == currentPercentage) {
+                        qCDebug(dcGenericShading()) << "Extended awning has reached target percentage, stopping timer";
+                        setBlindState(BlindStateStopped, thing);
+                    }
+                }
+            });
     } else if (info->thing()->thingClassId() == venetianBlindThingClassId) {
         uint closingTime = thing->setting(venetianBlindSettingsClosingDurationParamTypeId).toUInt();
         uint angleTime = thing->setting(venetianBlindSettingsAngleTimeParamTypeId).toUInt();
@@ -227,6 +270,40 @@ void IntegrationPluginGenericShading::executeAction(ThingActionInfo *info)
                 thing->setStateValue(awningStatusStateTypeId, "Stopped");
             }
             info->finish(Thing::ThingErrorNoError);
+        } else {
+            Q_ASSERT_X(false, "executeAction", QString("Unhandled actionTypeId: %1").arg(action.actionTypeId().toString()).toUtf8());
+        }
+
+    } else if (thing->thingClassId() == extendedAwningThingClassId) {
+        if (action.actionTypeId() == extendedAwningOpenActionTypeId) {
+            setBlindState(BlindStateOpening, thing);
+            return info->finish(Thing::ThingErrorNoError);
+        } else if (action.actionTypeId() == extendedAwningStopActionTypeId) {
+            setBlindState(BlindStateStopped, thing);
+            return info->finish(Thing::ThingErrorNoError);
+        } else if (action.actionTypeId() == extendedAwningCloseActionTypeId) {
+            setBlindState(BlindStateClosing, thing);
+            return info->finish(Thing::ThingErrorNoError);
+        } else if (action.actionTypeId() == extendedAwningOpeningOutputActionTypeId) {
+            bool on = action.param(extendedAwningOpeningOutputActionOpeningOutputParamTypeId).value().toBool();
+            thing->setStateValue(extendedAwningOpeningOutputStateTypeId, on);
+            if (on) {
+                setBlindState(BlindStateOpening, thing);
+            } else {
+                setBlindState(BlindStateStopped, thing);
+            }
+            info->finish(Thing::ThingErrorNoError);
+        } else if (action.actionTypeId() == extendedAwningClosingOutputActionTypeId) {
+            bool on = action.param(extendedAwningClosingOutputActionClosingOutputParamTypeId).value().toBool();
+            thing->setStateValue(extendedAwningClosingOutputStateTypeId, on);
+            if (on) {
+                setBlindState(BlindStateClosing, thing);
+            } else {
+                setBlindState(BlindStateStopped, thing);
+            }
+            info->finish(Thing::ThingErrorNoError);
+        } else if (action.actionTypeId() == extendedAwningPercentageActionTypeId) {
+            moveBlindToPercentage(action, thing);
         } else {
             Q_ASSERT_X(false, "executeAction", QString("Unhandled actionTypeId: %1").arg(action.actionTypeId().toString()).toUtf8());
         }
@@ -433,6 +510,31 @@ void IntegrationPluginGenericShading::setBlindState(IntegrationPluginGenericShad
             m_extendedBlindPercentageTimer.value(thing)->stop();
             break;
         }
+    } else if (thing->thingClassId() == extendedAwningThingClassId) {
+        switch (state) {
+        case BlindStateOpening:
+            thing->setStateValue(extendedAwningStatusStateTypeId, "Opening");
+            thing->setStateValue(extendedAwningClosingOutputStateTypeId, false);
+            thing->setStateValue(extendedAwningOpeningOutputStateTypeId, true);
+            thing->setStateValue(extendedAwningMovingStateTypeId, true);
+            m_extendedAwningPercentageTimer.value(thing)->start();
+            break;
+        case BlindStateClosing:
+            thing->setStateValue(extendedAwningStatusStateTypeId, "Closing");
+            thing->setStateValue(extendedAwningClosingOutputStateTypeId, true);
+            thing->setStateValue(extendedAwningOpeningOutputStateTypeId, false);
+            thing->setStateValue(extendedAwningMovingStateTypeId, true);
+            m_extendedAwningPercentageTimer.value(thing)->start();
+            break;
+        case BlindStateStopped:
+            thing->setStateValue(extendedAwningStatusStateTypeId, "Stopped");
+            thing->setStateValue(extendedAwningClosingOutputStateTypeId, false);
+            thing->setStateValue(extendedAwningOpeningOutputStateTypeId, false);
+            thing->setStateValue(extendedAwningMovingStateTypeId, false);
+            m_extendedAwningPercentageTimer.value(thing)->stop();
+            break;
+        }
+
     } else if (thing->thingClassId() == venetianBlindThingClassId) {
         m_venetianBlindTargetAngle.remove(thing);
         switch (state) {
@@ -481,6 +583,22 @@ void IntegrationPluginGenericShading::moveBlindToPercentage(Action action, Thing
         } else {
             setBlindState(BlindStateStopped, thing);
         }
+    } else if (thing->thingClassId() == extendedAwningThingClassId) {
+        uint targetPercentage = action.param(extendedAwningPercentageActionPercentageParamTypeId).value().toUInt();
+        uint currentPercentage = thing->stateValue(extendedAwningPercentageStateTypeId).toUInt();
+        // 100% indicates the device is fully closed
+        if (targetPercentage == currentPercentage) {
+            qCDebug(dcGenericShading()) << "Extended awningis already at given percentage" << targetPercentage;
+        } else if (targetPercentage > currentPercentage) {
+            setBlindState(BlindStateClosing, thing);
+            m_extendedAwningTargetPercentage.insert(thing, targetPercentage);
+        } else if (targetPercentage < currentPercentage) {
+            setBlindState(BlindStateOpening, thing);
+            m_extendedAwningTargetPercentage.insert(thing, targetPercentage);
+        } else {
+            setBlindState(BlindStateStopped, thing);
+        }
+
     } else if (thing->thingClassId() == venetianBlindThingClassId) {
         uint targetPercentage = action.param(venetianBlindPercentageActionPercentageParamTypeId).value().toUInt();
         uint currentPercentage = thing->stateValue(venetianBlindPercentageStateTypeId).toUInt();
