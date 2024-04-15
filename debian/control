@@ -1,9 +1,8 @@
 Source: nymea-plugins-genericthings
 Section: utils
 Priority: options
-Maintainer: Nymea GmbH <developer@nymea.io>
-Build-depends: libboblight-dev,
-               debhelper (>= 0.0.0),
+Maintainer: nymea GmbH <developer@nymea.io>
+Build-depends: debhelper (>= 0.0.0),
                libnymea-dev (>= 0.26~),
                nymea-dev-tools:native,
                pkg-config,
