@@ -16,19 +16,23 @@ $(PYTHON_REQUIREMENTS:.txt=): %: %.txt
 	echo "pip3 install --require-hashes --upgrade -r usr/lib/$(DEB_HOST_MULTIARCH)/nymea/plugins/$(PYTHON_PLUGIN)/requirements.txt -t usr/lib/$(DEB_HOST_MULTIARCH)/nymea/plugins/$(PYTHON_PLUGIN)/modules" >> debian/nymea-plugin-$(PYTHON_PLUGIN).postinst
 	echo "rm -rf usr/lib/$(DEB_HOST_MULTIARCH)/nymea/plugins/$(PYTHON_PLUGIN)/modules" >> debian/nymea-plugin-$(PYTHON_PLUGIN).prerm
 
-%:
-	dh $@ --parallel
-
 override_dh_auto_build:
 	dh_auto_build
 	make lrelease
 
 override_dh_install: $(PREPROCESS_FILES:.in=) $(PYTHON_REQUIREMENTS:.txt=)
-	dh_install --fail-missing
+	dh_install
+
+# Note that this is the default with compat level 12.
+override_dh_missing:
+	dh_missing --list-missing
 
 override_dh_auto_clean:
 	dh_auto_clean
 	find -name *plugininfo.h -exec rm {} \;
 	find -name *.qm -exec rm {} \;
 	rm -rf $(PREPROCESS_FILES:.in=)
+
+%:
+	dh $@ --parallel
 

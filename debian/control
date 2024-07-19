@@ -1,13 +1,13 @@
 Source: nymea-plugins-genericthings
 Section: utils
-Priority: options
+Priority: oiptional
 Maintainer: nymea GmbH <developer@nymea.io>
+Standards-Version: 4.6.0
 Build-depends: debhelper (>= 0.0.0),
                libnymea-dev (>= 0.26~),
                nymea-dev-tools:native,
                pkg-config,
                qtbase5-dev,
-Standards-Version: 3.9.3
 
 
 Package: nymea-plugin-generic-buttons
