@@ -1,7 +1,7 @@
 ﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *
 *
-* Copyright 2013 - 2020, nymea GmbH
+* Copyright 2013 - 2025, nymea GmbH
 * Contact: contact@nymea.io
 
 * This file is part of nymea.
@@ -103,15 +103,35 @@ void IntegrationPluginGenericEnergy::executeAction(ThingActionInfo *info)
         }
     } else if (thing->thingClassId() == energyMeterThingClassId) {
         if (action.actionTypeId() == energyMeterCurrentPowerActionTypeId) {
-            thing->setStateValue(energyMeterCurrentPowerStateTypeId, action.paramValue(energyMeterCurrentPowerActionCurrentPowerParamTypeId));
+            thing->setStateValue(energyMeterCurrentPowerStateTypeId,
+                                 action.paramValue(energyMeterCurrentPowerActionCurrentPowerParamTypeId));
         } else if (action.actionTypeId() == energyMeterTotalEnergyConsumedActionTypeId) {
-            thing->setStateValue(energyMeterTotalEnergyConsumedStateTypeId, action.paramValue(energyMeterTotalEnergyConsumedActionTotalEnergyConsumedParamTypeId));
+            thing->setStateValue(energyMeterTotalEnergyConsumedStateTypeId,
+                                 action.paramValue(energyMeterTotalEnergyConsumedActionTotalEnergyConsumedParamTypeId));
         } else if (action.actionTypeId() == energyMeterTotalEnergyProducedActionTypeId) {
-            thing->setStateValue(energyMeterTotalEnergyProducedStateTypeId, action.paramValue(energyMeterTotalEnergyProducedActionTotalEnergyProducedParamTypeId));
+            thing->setStateValue(energyMeterTotalEnergyProducedStateTypeId,
+                                 action.paramValue(energyMeterTotalEnergyProducedActionTotalEnergyProducedParamTypeId));
+        } else if (action.actionTypeId() == energyMeterCurrentPowerPhaseAActionTypeId) {
+            thing->setStateValue(energyMeterCurrentPowerPhaseAStateTypeId,
+                                 action.paramValue(energyMeterCurrentPowerPhaseAActionCurrentPowerPhaseAParamTypeId));
+        } else if (action.actionTypeId() == energyMeterCurrentPowerPhaseBActionTypeId) {
+            thing->setStateValue(energyMeterCurrentPowerPhaseBStateTypeId,
+                                 action.paramValue(energyMeterCurrentPowerPhaseBActionCurrentPowerPhaseBParamTypeId));
+        } else if (action.actionTypeId() == energyMeterCurrentPowerPhaseCActionTypeId) {
+            thing->setStateValue(energyMeterCurrentPowerPhaseCStateTypeId,
+                                 action.paramValue(energyMeterCurrentPowerPhaseCActionCurrentPowerPhaseCParamTypeId));
         } else if (action.actionTypeId() == energyMeterCurrentPhaseAActionTypeId) {
             thing->setStateValue(energyMeterCurrentPhaseAStateTypeId, action.paramValue(energyMeterCurrentPhaseAActionCurrentPhaseAParamTypeId));
+        } else if (action.actionTypeId() == energyMeterCurrentPhaseBActionTypeId) {
+            thing->setStateValue(energyMeterCurrentPhaseBStateTypeId, action.paramValue(energyMeterCurrentPhaseBActionCurrentPhaseBParamTypeId));
+        } else if (action.actionTypeId() == energyMeterCurrentPhaseCActionTypeId) {
+            thing->setStateValue(energyMeterCurrentPhaseCStateTypeId, action.paramValue(energyMeterCurrentPhaseCActionCurrentPhaseCParamTypeId));
         } else if (action.actionTypeId() == energyMeterVoltagePhaseAActionTypeId) {
             thing->setStateValue(energyMeterVoltagePhaseAStateTypeId, action.paramValue(energyMeterVoltagePhaseAActionVoltagePhaseAParamTypeId));
+        } else if (action.actionTypeId() == energyMeterVoltagePhaseBActionTypeId) {
+            thing->setStateValue(energyMeterVoltagePhaseBStateTypeId, action.paramValue(energyMeterVoltagePhaseBActionVoltagePhaseBParamTypeId));
+        } else if (action.actionTypeId() == energyMeterVoltagePhaseCActionTypeId) {
+            thing->setStateValue(energyMeterVoltagePhaseCStateTypeId, action.paramValue(energyMeterVoltagePhaseCActionVoltagePhaseCParamTypeId));
         }
         info->finish(Thing::ThingErrorNoError);
     } else if (thing->thingClassId() == impulseSmartMeterThingClassId) {

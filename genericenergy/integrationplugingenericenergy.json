@@ -76,10 +76,80 @@
                             "writable": true
                         },
                         {
+                            "id": "37097a51-063e-4b04-aa7b-67ddda8a3c81",
+                            "name": "currentPhaseB",
+                            "displayName": "Current on phase B",
+                            "displayNameAction": "Set current on phase B",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Ampere",
+                            "writable": true
+                        },
+                        {
+                            "id": "6c3497fd-9894-4485-a295-15b0d829d023",
+                            "name": "currentPhaseC",
+                            "displayName": "Current on phase C",
+                            "displayNameAction": "Set current on phase C",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Ampere",
+                            "writable": true
+                        },
+                        {
+                            "id": "91e82743-2d97-41e9-8bf2-cb6034818079",
+                            "name": "currentPowerPhaseA",
+                            "displayName": "Current power on phase A",
+                            "displayNameAction": "Set current power on phase A",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Watt",
+                            "writable": true
+                        },
+                        {
+                            "id": "7ecbec82-71ec-4df3-b298-837e7f37aa4b",
+                            "name": "currentPowerPhaseB",
+                            "displayName": "Current power on phase B",
+                            "displayNameAction": "Set current power on phase B",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Watt",
+                            "writable": true
+                        },
+                        {
+                            "id": "eded281b-217b-48f5-8b91-b5142ea87505",
+                            "name": "currentPowerPhaseC",
+                            "displayName": "Current power on phase C",
+                            "displayNameAction": "Set current power on phase C",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Watt",
+                            "writable": true
+                        },
+                        {
                             "id": "03deaf24-e515-4649-8979-ef8ae8ee7c02",
                             "name": "voltagePhaseA",
                             "displayName": "Voltage on phase A",
                             "displayNameAction": "Set voltage on phase A",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Volt",
+                            "writable": true
+                        },
+                        {
+                            "id": "7e1514fb-7e69-4849-90c4-8f27dbd6453a",
+                            "name": "voltagePhaseB",
+                            "displayName": "Voltage on phase B",
+                            "displayNameAction": "Set voltage on phase B",
+                            "type": "double",
+                            "defaultValue": 0.00,
+                            "unit": "Volt",
+                            "writable": true
+                        },
+                        {
+                            "id": "b6e69a07-a362-4eef-87b7-5a670e332919",
+                            "name": "voltagePhaseC",
+                            "displayName": "Voltage on phase C",
+                            "displayNameAction": "Set voltage on phase C",
                             "type": "double",
                             "defaultValue": 0.00,
                             "unit": "Volt",
