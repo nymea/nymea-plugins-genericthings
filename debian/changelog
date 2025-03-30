@@ -1,3 +1,10 @@
+nymea-plugins-genericthings (1.11.0) jammy; urgency=medium
+
+  [ Simon Stürz ]
+  * Energy: Make energy meter a three phase meter
+
+ -- jenkins <developer@nymea.io>  Sun, 30 Mar 2025 20:37:06 +0200
+
 nymea-plugins-genericthings (1.10.0) jammy; urgency=medium
 
 
