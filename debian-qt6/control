@@ -1,0 +1,163 @@
+Source: nymea-plugins-genericthings
+Section: utils
+Priority: oiptional
+Maintainer: nymea GmbH <developer@nymea.io>
+Standards-Version: 4.7.2
+Build-depends: debhelper,
+               libnymea-dev,
+               nymea-dev-tools:native,
+               pkg-config,
+               qt6-base-dev,
+               qt6-base-dev-tools,
+
+Package: nymea-plugin-generic-buttons
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for generic buttons
+ This package contains the nymea integration plugin for buttons buttons
+ and switches. This can be used represent buttons (like remote controls)
+ in nymea which don't have a specific nymea plugin but can be connected
+ via other means, like input GPIOs or such. Also it contains a virtual 
+ buttons to create buttons in nymea that don't actually reflect a physical
+ device and are used to trigger other logic such as rules, scenes or scripts
+ by pressing the button in the client application ui.
+
+
+Package: nymea-plugin-generic-car
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for generic cars
+ This package contains the nymea integration plugin for generic cars.
+
+
+Package: nymea-plugin-generic-energy
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for generic energy related thins
+ This package contains the nymea integeration plugin for generic energy
+ related devices. They can be used to represent such energy related devices
+ in nymea when a particular device doesn't offer its own plugin but instead
+ provides data via some other channel to nymea.
+
+
+Package: nymea-plugin-generic-garages
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for generic garages
+ This package contains the nymea integration plugin for generic garages.
+ They can be used to connect represent various garages in nymea when
+ a particular garage doesn't offer its own nymea plugin but instead can
+ be controlled via other means, like GPIOs or other types of relays.
+
+
+Package: nymea-plugin-generic-heatingcooling
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for geeric heating and cooling devices
+ This package contains the nymea integration plugin for generic heating and
+ cooling devices. They can be used to represent such devices in nymea when
+ a particular device doesn't offer its own plugin but instead can be controlled
+ via other means, like GPIOs or other types of relays.
+
+
+Package: nymea-plugin-generic-irrigation
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for generic irrigation systems
+ This package contains the nymea integration plugin for generic irrigation
+ systems. They can be used to represent such devices in nymea when a particular
+ device doesn't offer its own plugin but instead can be controlled via other
+ means, like GPIOs or other types of relays.
+
+
+Package: nymea-plugin-generic-lights
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for generic lights
+ This package contains the nymea integration plugin for generic lights.
+ They can be used to represent lights in nymea which are controlled via
+ some on/off switches like smart plugs, GPIOs, relays or more complex systems
+ like MQTT.
+
+
+Package: nymea-plugin-generic-sensors
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for generic sensors
+ This package contains the nymea integration plugin for generic sensors.
+ They can be used to represent such sensors in nymea when a particular
+ device doesn't offer its own plugin but instead provides data via some
+ other channel to nymea, like analog input GPIOs or MQTT.
+
+
+Package: nymea-plugin-generic-shading
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for generic shading devices
+ This package contains the nymea integration plugin for generic shading devices.
+ They can be used to represent such devices in nymea when a particular device
+ doesn't offer its own plugin instead can be controller via other means,
+ like GPIOs or other types of relays.
+
+
+Package: nymea-plugin-generic-thing
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: nymea integration plugin for a generic thing
+ This package contains the nymea integration plugin for all generic thing.
+ This can be used to represent various data for devices or services that
+ don't fit any of the known device/service types.
+
+
+Package: nymea-plugins-genericthings
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         nymea-plugin-generic-buttons,
+         nymea-plugin-generic-car,
+         nymea-plugin-generic-energy,
+         nymea-plugin-generic-garages,
+         nymea-plugin-generic-heatingcooling,
+         nymea-plugin-generic-irrigation,
+         nymea-plugin-generic-lights,
+         nymea-plugin-generic-sensors,
+         nymea-plugin-generic-shading,
+         nymea-plugin-generic-thing,
+Conflicts: nymea-plugin-genericthings
+Replaces: nymea-plugin-genericthings
+Description: meta package for nymeas generic things plugins
+ This package will install all generic things plugins
+
