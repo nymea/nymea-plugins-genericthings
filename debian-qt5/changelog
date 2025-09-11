@@ -1,3 +1,10 @@
+nymea-plugins-genericthings (1.12.0) jammy; urgency=medium
+
+  [ Simon Stürz ]
+  * Add Qt6 debian packaging
+
+ -- jenkins <developer@nymea.io>  Thu, 11 Sep 2025 14:25:32 +0200
+
 nymea-plugins-genericthings (1.11.1) jammy; urgency=medium
 
 
