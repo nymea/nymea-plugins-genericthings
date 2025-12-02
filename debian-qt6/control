@@ -1,7 +1,7 @@
 Source: nymea-plugins-genericthings
 Section: utils
 Priority: oiptional
-Maintainer: nymea GmbH <developer@nymea.io>
+Maintainer: chargebyte austria GmbH <contact@nymea.io>
 Standards-Version: 4.7.2
 Build-depends: debhelper,
                libnymea-dev,
@@ -160,4 +160,3 @@ Conflicts: nymea-plugin-genericthings
 Replaces: nymea-plugin-genericthings
 Description: meta package for nymeas generic things plugins
  This package will install all generic things plugins
-
