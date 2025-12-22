@@ -187,7 +187,7 @@ void IntegrationPluginGenericEnergy::executeAction(ThingActionInfo *info)
         } else if (action.actionTypeId() == wallboxDesiredPhaseCountActionTypeId) {
             thing->setStateValue(wallboxDesiredPhaseCountStateTypeId, action.paramValue(wallboxDesiredPhaseCountActionDesiredPhaseCountParamTypeId).toUInt());
         } else if (action.actionTypeId() == wallboxMaxChargingCurrentActionTypeId) {
-            thing->setStateValue(wallboxMaxChargingCurrentStateTypeId, action.paramValue(wallboxMaxChargingCurrentActionMaxChargingCurrentParamTypeId).toUInt());
+            thing->setStateValue(wallboxMaxChargingCurrentStateTypeId, action.paramValue(wallboxMaxChargingCurrentActionMaxChargingCurrentParamTypeId).toDouble());
         } else if (action.actionTypeId() == wallboxPhaseCountActionTypeId) {
             thing->setStateValue(wallboxPhaseCountStateTypeId, action.paramValue(wallboxPhaseCountActionPhaseCountParamTypeId).toUInt());
         } else if (action.actionTypeId() == wallboxPluggedInActionTypeId) {
