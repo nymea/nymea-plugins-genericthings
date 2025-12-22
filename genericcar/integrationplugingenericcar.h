@@ -25,13 +25,11 @@
 #ifndef INTEGRATIONPLUGINGENERICCAR_H
 #define INTEGRATIONPLUGINGENERICCAR_H
 
-#include "integrations/integrationplugin.h"
-#include "plugintimer.h"
+#include <integrations/integrationplugin.h>
+
 #include "extern-plugininfo.h"
 
-#include <QTimer>
-
-class IntegrationPluginGenericCar: public IntegrationPlugin
+class IntegrationPluginGenericCar : public IntegrationPlugin
 {
     Q_OBJECT
 
@@ -42,11 +40,6 @@ public:
     explicit IntegrationPluginGenericCar();
     void setupThing(ThingSetupInfo *info) override;
     void executeAction(ThingActionInfo *info) override;
-
-private:
-    QHash<Thing *, int> m_pulsesPerTimeframe;
-
-    QHash<Thing *, QTimer *> m_smartMeterTimer;
 };
 
 #endif // INTEGRATIONPLUGINGENERICCAR_H
