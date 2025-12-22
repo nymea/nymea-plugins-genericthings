@@ -26,6 +26,16 @@
                             "defaultValue": 6
                         },
                         {
+                            "id": "69ae5ffa-b31b-4295-a2a8-61bd7b2fc5da",
+                            "name": "maxChargingCurrent",
+                            "displayName": "Maximal charging current",
+                            "type": "uint",
+                            "unit": "Ampere",
+                            "minValue": 16,
+                            "maxValue": 80,
+                            "defaultValue": 80
+                        },
+                        {
                             "id": "57f36386-dd71-4ab0-8d2f-8c74a391f90d",
                             "name": "capacity",
                             "displayName": "Capacity",
@@ -60,7 +70,6 @@
                             "id": "363a2a39-61b6-4109-9cd9-aca7367d12c7",
                             "name": "capacity",
                             "displayName": "Capacity",
-                            "displayNameEvent": "Capacity changed",
                             "type": "double",
                             "unit": "KiloWattHour",
                             "defaultValue": 50
@@ -69,7 +78,6 @@
                             "id": "d33982d6-6467-4281-b448-68c1b1db088d",
                             "name": "batteryCritical",
                             "displayName": "Battery level critical",
-                            "displayNameEvent": "Battery entered or left critical state",
                             "type": "bool",
                             "defaultValue": false
                         },
@@ -77,7 +85,6 @@
                             "id": "3f1cca10-8988-4ec6-b937-0775653cde12",
                             "name": "batteryLevel",
                             "displayName": "Battery level",
-                            "displayNameEvent": "Battery level changed",
                             "displayNameAction": "Set battery level",
                             "type": "int",
                             "unit": "Percentage",
@@ -90,7 +97,6 @@
                             "id": "20faf2b8-2b40-4bee-b228-97dbaf0cdffc",
                             "name": "minChargingCurrent",
                             "displayName": "Minimum charging current",
-                            "displayNameEvent": "Minimum charging current changed",
                             "type": "uint",
                             "unit": "Ampere",
                             "minValue": 6,
@@ -98,10 +104,19 @@
                             "defaultValue": 6
                         },
                         {
+                            "id": "ad17e812-ba07-47a8-99a4-eefb8b54fc85",
+                            "name": "maxChargingCurrent",
+                            "displayName": "Maximum charging current",
+                            "type": "uint",
+                            "unit": "Ampere",
+                            "minValue": 16,
+                            "maxValue": 80,
+                            "defaultValue": 80
+                        },
+                        {
                             "id": "c886c062-bf1a-46c5-8e54-aed804a22d57",
                             "name": "phaseCount",
                             "displayName": "Phase count",
-                            "displayNameEvent": "Phase count changed",
                             "type": "uint",
                             "minValue": 1,
                             "maxValue": 3,

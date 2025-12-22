@@ -25,25 +25,22 @@
 #include "integrationplugingenericcar.h"
 #include "plugininfo.h"
 
-#include <QDebug>
-#include <QtMath>
-
-IntegrationPluginGenericCar::IntegrationPluginGenericCar()
-{
-
-}
+IntegrationPluginGenericCar::IntegrationPluginGenericCar() {}
 
 void IntegrationPluginGenericCar::setupThing(ThingSetupInfo *info)
 {
     Thing *thing = info->thing();
 
     // Set the min charging current state if the settings value changed
-    connect(thing, &Thing::settingChanged, this, [thing](const ParamTypeId &paramTypeId, const QVariant &value){
+    connect(thing, &Thing::settingChanged, this, [thing](const ParamTypeId &paramTypeId, const QVariant &value) {
         if (paramTypeId == carSettingsCapacityParamTypeId) {
             thing->setStateValue(carCapacityStateTypeId, value);
         } else if (paramTypeId == carSettingsMinChargingCurrentParamTypeId) {
             qCDebug(dcGenericCar()) << "Car minimum charging current settings changed" << value.toUInt() << "A";
             thing->setStateValue(carMinChargingCurrentStateTypeId, value);
+        } else if (paramTypeId == carSettingsMaxChargingCurrentParamTypeId) {
+            qCDebug(dcGenericCar()) << "Car maximum charging current settings changed" << value.toUInt() << "A";
+            thing->setStateValue(carMaxChargingCurrentStateTypeId, value);
         } else if (paramTypeId == carSettingsPhaseCountParamTypeId) {
             thing->setStateValue(carPhaseCountStateTypeId, value);
         }
