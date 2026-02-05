@@ -365,7 +365,7 @@
                     "name": "wallbox",
                     "displayName": "Generic wallbox",
                     "createMethods": ["user"],
-                    "interfaces": ["evcharger", "smartmeterconsumer"],
+                    "interfaces": ["evcharger", "smartmeterconsumer", "connectable"],
                     "settingsTypes": [
                         {
                             "id": "03da62b5-9b6a-4cd0-8e68-8c93da98e2fe",
@@ -387,6 +387,14 @@
                         }
                     ],
                     "stateTypes": [
+                        {
+                            "id": "1cd41b7c-e030-496e-97b2-6ad22063bf3e",
+                            "name": "connected",
+                            "displayName": "Connected",
+                            "type": "bool",
+                            "cached": false,
+                            "defaultValue": true
+                        },
                         {
                             "id": "1e0890e5-065a-455a-a068-10b0231897f4",
                             "name": "maxChargingCurrent",
