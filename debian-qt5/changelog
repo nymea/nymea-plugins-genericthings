@@ -1,3 +1,10 @@
+nymea-plugins-genericthings (1.14.1) noble; urgency=medium
+
+  [ Simon Stürz ]
+  * energy: Add connectable interface to the generic wallbox
+
+ -- jenkins <developer@nymea.io>  Tue, 10 Feb 2026 12:06:08 +0100
+
 nymea-plugins-genericthings (1.14.0) noble; urgency=medium
 
   [ Simon Stürz ]
