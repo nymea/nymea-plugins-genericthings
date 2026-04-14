@@ -28,7 +28,7 @@
                         {
                             "id": "69ae5ffa-b31b-4295-a2a8-61bd7b2fc5da",
                             "name": "maxChargingCurrent",
-                            "displayName": "Maximal charging current",
+                            "displayName": "Maximum charging current",
                             "type": "uint",
                             "unit": "Ampere",
                             "minValue": 16,
