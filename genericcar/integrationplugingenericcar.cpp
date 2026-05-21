@@ -3,7 +3,7 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *
 * Copyright (C) 2013 - 2024, nymea GmbH
-* Copyright (C) 2024 - 2025, chargebyte austria GmbH
+* Copyright (C) 2024 - 2026, chargebyte austria GmbH
 *
 * This file is part of nymea-plugins-genericthings.
 *
@@ -31,29 +31,40 @@ void IntegrationPluginGenericCar::setupThing(ThingSetupInfo *info)
 {
     Thing *thing = info->thing();
 
-    // Set the min charging current state if the settings value changed
+    // Keep EV capability states aligned with the persisted generic car settings.
     connect(thing, &Thing::settingChanged, this, [thing](const ParamTypeId &paramTypeId, const QVariant &value) {
         if (paramTypeId == carSettingsCapacityParamTypeId) {
             thing->setStateValue(carCapacityStateTypeId, value);
-        } else if (paramTypeId == carSettingsMinChargingCurrentParamTypeId) {
+        } else if (paramTypeId == carSettingsChargingInterfacesParamTypeId) {
+            thing->setStateValue(carChargingInterfacesStateTypeId, value);
+        } else if (paramTypeId == carSettingsAcMinChargingCurrentParamTypeId) {
             qCDebug(dcGenericCar()) << "Car minimum charging current settings changed" << value.toUInt() << "A";
-            thing->setStateValue(carMinChargingCurrentStateTypeId, value);
-        } else if (paramTypeId == carSettingsMaxChargingCurrentParamTypeId) {
+            thing->setStateValue(carAcMinChargingCurrentStateTypeId, value);
+        } else if (paramTypeId == carSettingsAcMaxChargingCurrentParamTypeId) {
             qCDebug(dcGenericCar()) << "Car maximum charging current settings changed" << value.toUInt() << "A";
-            thing->setStateValue(carMaxChargingCurrentStateTypeId, value);
-        } else if (paramTypeId == carSettingsPhaseCountParamTypeId) {
-            thing->setStateValue(carPhaseCountStateTypeId, value);
+            thing->setStateValue(carAcMaxChargingCurrentStateTypeId, value);
+        } else if (paramTypeId == carSettingsAcPhaseCountParamTypeId) {
+            thing->setStateValue(carAcPhaseCountStateTypeId, value);
         }
     });
 
     // Migration from earlier versions (pre 1.3) which had the capacity setting as a writable state.
     thing->setSettingValue(carSettingsCapacityParamTypeId, thing->stateValue(carCapacityStateTypeId));
 
+    // Existing configured generic cars were always AC charged through a wallbox.
+    if (thing->setting(carSettingsChargingInterfacesParamTypeId).toString().isEmpty()) {
+        thing->setSettingValue(carSettingsChargingInterfacesParamTypeId, QStringLiteral("ac"));
+    }
+
     // Finish the setup
     info->finish(Thing::ThingErrorNoError);
 
-    // Set the inital state value
-    thing->setStateValue(carMinChargingCurrentStateTypeId, thing->setting(carSettingsMinChargingCurrentParamTypeId));
+    // Set the initial EV capability states from the persisted settings.
+    thing->setStateValue(carCapacityStateTypeId, thing->setting(carSettingsCapacityParamTypeId));
+    thing->setStateValue(carChargingInterfacesStateTypeId, thing->setting(carSettingsChargingInterfacesParamTypeId));
+    thing->setStateValue(carAcMinChargingCurrentStateTypeId, thing->setting(carSettingsAcMinChargingCurrentParamTypeId));
+    thing->setStateValue(carAcMaxChargingCurrentStateTypeId, thing->setting(carSettingsAcMaxChargingCurrentParamTypeId));
+    thing->setStateValue(carAcPhaseCountStateTypeId, thing->setting(carSettingsAcPhaseCountParamTypeId));
 }
 
 void IntegrationPluginGenericCar::executeAction(ThingActionInfo *info)
