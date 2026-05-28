@@ -38,12 +38,13 @@ void IntegrationPluginGenericCar::setupThing(ThingSetupInfo *info)
         } else if (paramTypeId == carSettingsChargingInterfacesParamTypeId) {
             thing->setStateValue(carChargingInterfacesStateTypeId, value);
         } else if (paramTypeId == carSettingsAcMinChargingCurrentParamTypeId) {
-            qCDebug(dcGenericCar()) << "Car minimum charging current settings changed" << value.toUInt() << "A";
+            qCDebug(dcGenericCar()) << "Car minimum AC charging current settings changed" << value.toUInt() << "A";
             thing->setStateValue(carAcMinChargingCurrentStateTypeId, value);
         } else if (paramTypeId == carSettingsAcMaxChargingCurrentParamTypeId) {
-            qCDebug(dcGenericCar()) << "Car maximum charging current settings changed" << value.toUInt() << "A";
+            qCDebug(dcGenericCar()) << "Car maximum AC charging current settings changed" << value.toUInt() << "A";
             thing->setStateValue(carAcMaxChargingCurrentStateTypeId, value);
         } else if (paramTypeId == carSettingsAcPhaseCountParamTypeId) {
+            qCDebug(dcGenericCar()) << "Car AC phase count settings changed" << value.toUInt();
             thing->setStateValue(carAcPhaseCountStateTypeId, value);
         }
     });

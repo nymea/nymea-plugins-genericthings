@@ -18,7 +18,7 @@
                         {
                             "id": "400cf2f8-04fc-4500-bfc0-1c9c6c42f34c",
                             "name": "chargingInterfaces",
-                            "displayName": "Charging interfaces",
+                            "displayName": "Supported charging type",
                             "type": "QString",
                             "allowedValues": ["ac", "dc", "acdc"],
                             "defaultValue": "ac"
@@ -45,7 +45,7 @@
                         {
                             "id": "0c55516d-4285-4d02-8926-1dae03649e18",
                             "name": "acMinChargingCurrent",
-                            "displayName": "Minimum charging current",
+                            "displayName": "AC Minimal charging current",
                             "type": "uint",
                             "unit": "Ampere",
                             "minValue": 6,
@@ -55,7 +55,7 @@
                         {
                             "id": "69ae5ffa-b31b-4295-a2a8-61bd7b2fc5da",
                             "name": "acMaxChargingCurrent",
-                            "displayName": "Maximal charging current",
+                            "displayName": "AC Maximal charging current",
                             "type": "uint",
                             "unit": "Ampere",
                             "minValue": 16,
@@ -96,7 +96,7 @@
                         {
                             "id": "b63b6c1a-9332-4dfb-a05c-40ce66d17475",
                             "name": "chargingInterfaces",
-                            "displayName": "Charging interfaces",
+                            "displayName": "Supported charging type",
                             "type": "QString",
                             "possibleValues": ["ac", "dc", "acdc"],
                             "defaultValue": "ac"
@@ -123,7 +123,7 @@
                         {
                             "id": "20faf2b8-2b40-4bee-b228-97dbaf0cdffc",
                             "name": "acMinChargingCurrent",
-                            "displayName": "Minimum charging current",
+                            "displayName": "AC Minimal charging current",
                             "type": "uint",
                             "unit": "Ampere",
                             "minValue": 6,
@@ -133,7 +133,7 @@
                         {
                             "id": "ad17e812-ba07-47a8-99a4-eefb8b54fc85",
                             "name": "acMaxChargingCurrent",
-                            "displayName": "Maximum charging current",
+                            "displayName": "AC Maximal charging current",
                             "type": "uint",
                             "unit": "Ampere",
                             "minValue": 16,
@@ -152,7 +152,7 @@
                         {
                             "id": "51022267-98a5-41bd-b7ff-47a35b2fdd91",
                             "name": "dcMaxChargingPower",
-                            "displayName": "DC max charging power",
+                            "displayName": "DC Maximal charging power",
                             "type": "double",
                             "unit": "Watt",
                             "minValue": 0,
