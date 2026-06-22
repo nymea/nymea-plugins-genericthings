@@ -363,9 +363,9 @@
                 {
                     "id": "6f453eaa-7594-4be8-a92d-14878193071a",
                     "name": "wallbox",
-                    "displayName": "Generic wallbox",
+                    "displayName": "Generic AC wallbox",
                     "createMethods": ["user"],
-                    "interfaces": ["evcharger", "smartmeterconsumer", "connectable"],
+                    "interfaces": ["evchargerac", "smartmeterconsumer", "connectable"],
                     "settingsTypes": [
                         {
                             "id": "03da62b5-9b6a-4cd0-8e68-8c93da98e2fe",
