@@ -1,3 +1,10 @@
+nymea-plugins-genericthings (1.16.0) resolute; urgency=medium
+
+  [ Simon Stürz ]
+  * Update EV charger and electric vehicle interfaces
+
+ -- jenkins <developer@nymea.io>  Mon, 22 Jun 2026 15:03:08 +0200
+
 nymea-plugins-genericthings (1.15.2) resolute; urgency=medium
 
 
